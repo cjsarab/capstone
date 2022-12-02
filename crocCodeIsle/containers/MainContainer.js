@@ -8,6 +8,7 @@ const MainContainer = () => {
       <Text style={styles.text}>Croc Code Isle</Text>
       <TouchableOpacity style={styles.field}>
         <TextInput style={styles.input} placeholder="Please Enter Your Name..." />
+        <TextInput style={styles.input} placeholder="Please Enter Your Country..." />
       </TouchableOpacity>
     </View>
 
