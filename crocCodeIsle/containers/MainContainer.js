@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 import NameEntry from '../components/ui/NameEntry';
 import Logo from '../components/logo/Logo';
 import Style from '../components/styles/Style';
