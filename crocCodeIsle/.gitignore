@@ -5,3 +5,4 @@
 !.gitignore
 !App.js
 !/components/*
+!/containers/*
