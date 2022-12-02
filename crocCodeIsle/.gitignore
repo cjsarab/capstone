@@ -1,0 +1,7 @@
+# Ignore all files...
+*.*
+
+# ...except the ones we want
+!.gitignore
+!App.js
+!/components/*
