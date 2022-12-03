@@ -4,7 +4,7 @@
 # ...except the ones we want
 !.gitignore
 !App.js
-!/components
+!components
 !/containers
-!/components/*
+!components/*
 !/containers/*
