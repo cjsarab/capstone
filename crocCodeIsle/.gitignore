@@ -4,9 +4,9 @@
 # ...except the ones we want
 !.gitignore
 !App.js
-!/components/logo
-!/components/styles
-!/components/ui
+!/components/logo/*
+!/components/styles/*
+!/components/ui/*
 !/containers
 !/components/*
 !/containers/*
