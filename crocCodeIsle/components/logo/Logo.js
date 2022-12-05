@@ -4,7 +4,7 @@ import Style from '../styles/Style';
 
 const Logo = () => {
   return (
-    <Text style={Style.logo}>Croc Code Islands</Text>
+    <Text style={Style.logo}>Croc Code Islander</Text>
   );
 };
 
