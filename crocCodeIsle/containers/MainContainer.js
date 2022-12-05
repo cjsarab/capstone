@@ -24,17 +24,15 @@ const MainContainer = () => {
 
   if (name == "") {
   return (
-
     <View style={Style.mainContainerView}>
       <Logo />
       <NameEntry addName={addName}/>
       <Text> State: {name} </Text>
     </View>
-
-  );
+    );
   }
 
-  else if (name != "" && language == "" || language != "") {
+  else if (name != "" && language == "") {
     return (
       <View style={Style.mainContainerView}>
         <Logo />
@@ -44,13 +42,17 @@ const MainContainer = () => {
     );
   }
 
-  // else if (name !== "" && language !== "") {
-  //   return (
-  //     <View style={Style.mainContainerView}>
-  //             <Text style={Style.text}>We're not ready for this area. Homepage</Text>
-  //     </View>
-  //   )
-  // }
+  else if (name !== "" && language !== "") {
+
+    return (
+
+      <View style={Style.mainContainerView}>
+        
+              <Text style={Style.text}>We're not ready for this area. Homepage</Text>
+              <Text> States: name = {name}. language = {language}</Text>
+      </View>
+    )
+  }
 };
 
 export default MainContainer;

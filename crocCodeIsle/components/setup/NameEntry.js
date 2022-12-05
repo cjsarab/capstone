@@ -13,6 +13,7 @@ const NameEntry = ({addName}) => {
     <View style={Style.field}>
         <TextInput 
         style={Style.input}
+        autoCorrect='false'
         onSubmitEditing={(event) => submitName(event.nativeEvent.text)}
         placeholder="Your Name..." />
     </View>
