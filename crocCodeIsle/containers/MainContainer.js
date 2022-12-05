@@ -34,16 +34,17 @@ const MainContainer = () => {
   );
   }
 
-  else if (name != "") {
-  return (
-    <View style={Style.mainContainerView}>
-      <Logo />
-      <LanguageSelector language={language} setLanguage={setLanguage} chooseLanguage={chooseLanguage} />
-    </View>
-  )
+  else if (name != "" && language == "") {
+    return (
+      <View style={Style.mainContainerView}>
+        <Logo />
+        <LanguageSelector language={language} setLanguage={setLanguage} chooseLanguage={chooseLanguage} />
+        <Text> State: name - {name} language -  {language} </Text>
+      </View>
+    )
   }
 
-  else if (name != "" && language != "") {
+  else if (name !== "" && language !== "") {
     return (
       <Text>We're not ready for this area. Homepage</Text>
     )

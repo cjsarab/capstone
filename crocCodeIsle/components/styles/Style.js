@@ -32,5 +32,12 @@ export default Style = StyleSheet.create({
     languageChoiceButton: {
       fontSize: 40,
       backgroundColor: 'green',
+      paddingVertical: 20,
+      paddingHorizontal: 20,
+      margin: 20
+    },
+
+    languageChoiceField: {
+      padding: 20
     }
 });
