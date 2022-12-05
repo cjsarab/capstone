@@ -27,5 +27,10 @@ export default Style = StyleSheet.create({
 
     field: {
         padding:20
+    },
+
+    languageChoiceButton: {
+      fontSize: 40,
+      backgroundColor: 'green',
     }
 });
