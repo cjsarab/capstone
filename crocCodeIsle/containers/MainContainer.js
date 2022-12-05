@@ -2,10 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import {View, Text} from 'react-native';
-import NameEntry from '../components/ui/NameEntry';
+import NameEntry from '../components/setup/NameEntry';
 import Logo from '../components/logo/Logo';
 import Style from '../components/styles/Style';
-import LanguageSelector from '../components/ui/LanguageSelector';
+import LanguageSelector from '../components/setup/LanguageSelector';
 
 const MainContainer = () => {
 
@@ -26,29 +26,31 @@ const MainContainer = () => {
   return (
 
     <View style={Style.mainContainerView}>
-        <Logo />
-        <NameEntry name={name} setName={setName} addName={addName}/>
-        <Text> State: {name} </Text>
+      <Logo />
+      <NameEntry addName={addName}/>
+      <Text> State: {name} </Text>
     </View>
 
   );
   }
 
-  else if (name != "" && language == "") {
+  else if (name != "" && language == "" || language != "") {
     return (
       <View style={Style.mainContainerView}>
         <Logo />
-        <LanguageSelector language={language} setLanguage={setLanguage} chooseLanguage={chooseLanguage} />
-        <Text> State: name - {name} language -  {language} </Text>
+        <LanguageSelector chooseLanguage={chooseLanguage} />
+        <Text> States: name = {name}. language = {language}</Text>
       </View>
-    )
+    );
   }
 
-  else if (name !== "" && language !== "") {
-    return (
-      <Text>We're not ready for this area. Homepage</Text>
-    )
-  }
+  // else if (name !== "" && language !== "") {
+  //   return (
+  //     <View style={Style.mainContainerView}>
+  //             <Text style={Style.text}>We're not ready for this area. Homepage</Text>
+  //     </View>
+  //   )
+  // }
 };
 
 export default MainContainer;
