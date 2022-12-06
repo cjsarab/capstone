@@ -7,11 +7,13 @@ import Logo from '../components/logo/Logo';
 import Style from '../components/styles/Style';
 import LanguageSelector from '../components/setup/LanguageSelector';
 import NavBar from '../components/navbar/NavBar';
+import IslandContainer from '../components/islandcontainer/IslandContainer';
 
 const MainContainer = () => {
 
   const [name, setName] = useState ("")
   const [language, setLanguage] = useState ("")
+  const[selectedIsland, setSelectedIsland] = useState(null)
 
   function addName(name) {
     console.log(name)
@@ -21,6 +23,11 @@ const MainContainer = () => {
   function chooseLanguage(language) {
     console.log(language)
     tempLanguage = setLanguage(language)
+  };
+
+  function selectIsland(island_id){
+    console.log(island_id)
+    tempIsland = setSelectedIsland(island_id)
   };
 
   if (name == "") {
@@ -51,7 +58,8 @@ const MainContainer = () => {
         
               <Text style={Style.text}>We're not ready for this area. Homepage</Text>
               <NavBar/>
-              <Text> States: name = {name}. language = {language}</Text>
+              <IslandContainer selectIsland={selectIsland}/>
+              <Text>selectedIsland = {selectedIsland} States: name = {name}. language = {language}.</Text>
       </View>
     )
   }

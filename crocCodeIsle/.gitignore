@@ -9,6 +9,7 @@
 !/components/ui/*
 !/components/setup/*
 !/components/navbar/*
+!/components/islandcontainer/*
 !/containers
 !/components/*
 !/containers/*
