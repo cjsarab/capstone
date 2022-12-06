@@ -3,42 +3,41 @@ import {View, Text, StyleSheet, Pressable } from 'react-native';
 import Style from '../styles/Style';
 
 
-
 const Island = ({selectIsland, island_id, assignCurrentQuestion}) => {
 
+  const onPress = (id) => {
+    console.log(id)
+    selectIsland(id)
+    assignCurrentQuestion(1)
+  };
 
-        const onPress = (id)=>{
-            console.log(id)
-            selectIsland(id)
-            assignCurrentQuestion(1)
-        };
-
-    return (
-        <View>
-      <Pressable style={({ pressed }) => pressed ? [styles.languageChoiceButton, styles.pressed] : styles.languageChoiceButton } 
+  return (
+    <View>
+      <Pressable style={({ pressed }) => pressed ? [styles.islandButton, styles.pressed] : styles.islandButton } 
           onPress={(event) => onPress(island_id)}>
-        <Text style={Style.text}>Island</Text>
+      <Text style={Style.text}>Island</Text>
       </Pressable>
-        </View>
-
-    )
-}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
 
-    languageChoiceButton: {
-      backgroundColor: 'green',
-      width: 333,
+    islandButton: {
+      backgroundColor: '#f18930',
+      height: 120,
+      width: 120,
       padding: 20,
       margin: 20,
-      borderRadius: 50,
+      borderRadius: 10,
       borderWidth: 3,
       borderColor: 'black',
-      textAlign: 'center'
+      textAlign: 'center',
+      justifyContent: 'center',
     },
   
     pressed: {
-      backgroundColor: 'lime'
+      backgroundColor: '#ffdb0d'
     }
   
   })

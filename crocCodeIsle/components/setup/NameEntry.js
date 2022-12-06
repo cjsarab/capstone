@@ -7,7 +7,7 @@ const NameEntry = ({addName}) => {
 
   const submitName = (text) => {
     addName(text)
-  }
+  };
 
   return (
     <View style={Style.field}>

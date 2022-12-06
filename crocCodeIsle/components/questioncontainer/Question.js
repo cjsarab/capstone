@@ -1,15 +1,17 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {Text, SafeAreaView} from 'react-native';
 import Style from '../styles/Style';
 
+
 const Question = () => {
+
     return (
-        <View>
-        <Text>
-            hello
-        </Text>
-        </View>
-    )
-}
+        <SafeAreaView style={Style.field}>
+            <Text>
+                I'm a Question
+            </Text>
+        </SafeAreaView>
+    );
+};
 
 export default Question;

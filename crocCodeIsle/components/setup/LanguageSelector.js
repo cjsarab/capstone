@@ -3,12 +3,12 @@ import { View, Text, Pressable, StyleSheet } from 'react-native';
 import Style from '../styles/Style';
 
 
-const LanguageSelector = ({chooseLanguage, pressButton, depressButton}) => {
+const LanguageSelector = ({chooseLanguage}) => {
 
   const onPress = (text) => {
     console.log(text)
     chooseLanguage(text)
-  }
+  };
 
   const python = "Python";
   const javascript = "Javascript";

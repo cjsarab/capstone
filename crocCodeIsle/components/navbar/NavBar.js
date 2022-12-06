@@ -5,6 +5,7 @@ import LanguageChoiceButton from './LanguageChoiceButton';
 import LevelBar from './LevelBar';
 import ScoresButton from './ScoresButton';
 
+
 const NavBar = ({language, chooseLanguage, assignViewScoreTo}) => {
 
     return (
@@ -13,8 +14,7 @@ const NavBar = ({language, chooseLanguage, assignViewScoreTo}) => {
             <LevelBar/>
             <ScoresButton assignViewScoreTo={assignViewScoreTo}/>
         </SafeAreaView>
-    )
-
-}
+    );
+};
 
 export default NavBar;

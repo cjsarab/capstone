@@ -5,33 +5,32 @@ import Style from '../styles/Style';
 
 const LanguageChoiceButton = ({language, chooseLanguage})=>{
 
-    const onPress = ()=> {
+    const onPress = () => {
         chooseLanguage("")
     }
     
     var image;
-    if (language == 'Python'){
-         image = 'P'
+    if (language == 'Python') {
+        image = 'P'
     }
 
-    else if (language == 'Javascript'){
-         image = 'JS'
+    else if (language == 'Javascript') {
+        image = 'JS'
     }
 
-    if (language == 'Java'){
-         image = 'J'
+    else if (language == 'Java') {
+        image = 'J'
     }
 
     return (
         <View>
-<Pressable style={Style.navBarButton} onPress={(event)=>onPress()}>
-    <Text style={Style.text}>
-        {image}
-    </Text>
-</Pressable>
+            <Pressable style={Style.navBarButton} onPress={(event)=>onPress()}>
+                <Text style={Style.text}>
+                    {image}
+                </Text>
+            </Pressable>
         </View>
-
-    )
-}
+    );
+};
 
 export default LanguageChoiceButton;

@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 
+
 export default Style = StyleSheet.create({
 
     mainContainerView: {
@@ -9,10 +10,40 @@ export default Style = StyleSheet.create({
         backgroundColor: 'darkslateblue'
       },
     
-      logo: {
-        fontSize: 33,
-        color: 'lime'
-      },
+    questionContainer: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      bottom: 0,
+      top: 0,
+      marginTop: 150,
+      backgroundColor: 'teal',
+      borderWidth: 3,
+      borderColor: 'black',
+      borderRadius: 10,
+      marginLeft: 10,
+      marginRight: 10, 
+    },
+
+    islandContainer: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      bottom: 0,
+      top: 0,
+      marginTop: 150,
+      backgroundColor: '#006994',
+      borderWidth: 3,
+      borderColor: 'black',
+      borderRadius: 10,
+      marginLeft: 10,
+      marginRight: 10,
+    },
+    
+    logo: {
+      fontSize: 33,
+      color: 'lime'
+    },
 
     input: {
         height: 50,
@@ -26,7 +57,7 @@ export default Style = StyleSheet.create({
     },
 
     field: {
-        padding:20
+      padding: 20
     },
 
     text: {
