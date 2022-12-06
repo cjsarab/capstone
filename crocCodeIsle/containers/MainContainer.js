@@ -6,6 +6,7 @@ import NameEntry from '../components/setup/NameEntry';
 import Logo from '../components/logo/Logo';
 import Style from '../components/styles/Style';
 import LanguageSelector from '../components/setup/LanguageSelector';
+import NavBar from '../components/navbar/NavBar';
 
 const MainContainer = () => {
 
@@ -49,6 +50,7 @@ const MainContainer = () => {
       <View style={Style.mainContainerView}>
         
               <Text style={Style.text}>We're not ready for this area. Homepage</Text>
+              <NavBar/>
               <Text> States: name = {name}. language = {language}</Text>
       </View>
     )
