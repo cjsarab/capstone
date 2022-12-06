@@ -16,6 +16,7 @@ const MainContainer = () => {
   const [language, setLanguage] = useState ("")
   const[selectedIsland, setSelectedIsland] = useState(null)
   const[currentQuestion, setCurrentQuestion]= useState(null)
+  const[viewScore, setViewScore] = useState(false);
 
   function addName(name) {
     console.log(name)
@@ -35,6 +36,11 @@ const MainContainer = () => {
   function assignCurrentQuestion(question_id){
     console.log(question_id)
     tempCurrentQuestion = setCurrentQuestion(question_id)
+  };
+
+  function assignViewScoreTo(bool){
+    console.log(bool)
+    tempViewScore = setViewScore(bool)
   };
 
   if (name == "") {
@@ -57,6 +63,14 @@ const MainContainer = () => {
     );
   }
 
+  else if(name !== "" && language !== "" && viewScore == true){
+    return (
+      <SafeAreaView style={Style.mainContainerView}>
+        <Text> im the scores</Text>
+      </SafeAreaView>
+    )
+  }
+
   else if (name !== "" && language !== "" && selectedIsland == null) {
 
     return (
@@ -64,7 +78,7 @@ const MainContainer = () => {
       <SafeAreaView style={Style.mainContainerView}>
         
 
-              <NavBar style={Style.navBarContainer} language={language} chooseLanguage={chooseLanguage}/>
+              <NavBar style={Style.navBarContainer} language={language} chooseLanguage={chooseLanguage} assignViewScoreTo={assignViewScoreTo}/>
               <IslandContainer selectIsland={selectIsland} assignCurrentQuestion={assignCurrentQuestion}/>
               <Text>selectedIsland = {selectedIsland} States: name = {name}. language = {language}.</Text>
       </SafeAreaView>
@@ -79,7 +93,7 @@ const MainContainer = () => {
         
         <NavBar style={Style.navBarContainer} language={language} chooseLanguage={chooseLanguage}/>
               <Text style={Style.text}>this is the questions page</Text>
-              <QuestionContainer selectedIsland={selectedIsland} assignCurrentQuestion={assignCurrentQuestion}/>
+              <QuestionContainer selectedIsland={selectedIsland} assignCurrentQuestion={assignCurrentQuestion} assignViewScoreTo={assignViewScoreTo}/>
               <Text>currentQuestion={currentQuestion} selectedIsland = {selectedIsland} States: name = {name}. language = {language}.</Text>
       </SafeAreaView>
     )

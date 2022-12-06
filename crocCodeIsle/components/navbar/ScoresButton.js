@@ -1,13 +1,18 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Pressable} from 'react-native';
 import Style from '../styles/Style';
 
-const ScoresButton = ()=>{
+const ScoresButton = ({assignViewScoreTo})=>{
+
+const onPress = () => {
+    assignViewScoreTo(true)
+}
+
     return (
         <View>
-            <Text>
-                ScoresButton
-                </Text>
+<Pressable style={Style.navBarButton} onPress={(event)=>onPress()}>
+    <Text style={Style.text}>view score</Text>
+</Pressable>
         </View>
 
     )
