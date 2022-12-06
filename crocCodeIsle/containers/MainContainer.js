@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 import NameEntry from '../components/setup/NameEntry';
 import Logo from '../components/logo/Logo';
 import Style from '../components/styles/Style';
@@ -39,21 +39,21 @@ const MainContainer = () => {
 
   if (name == "") {
   return (
-    <View style={Style.mainContainerView}>
+    <SafeAreaView style={Style.mainContainerView}>
       <Logo />
       <NameEntry addName={addName}/>
       <Text> State: {name} </Text>
-    </View>
+    </SafeAreaView>
     );
   }
 
   else if (name != "" && language == "") {
     return (
-      <View style={Style.mainContainerView}>
+      <SafeAreaView style={Style.mainContainerView}>
         <Logo />
         <LanguageSelector chooseLanguage={chooseLanguage} />
         <Text> States: name = {name}. language = {language}</Text>
-      </View>
+      </SafeAreaView>
     );
   }
 
@@ -61,13 +61,13 @@ const MainContainer = () => {
 
     return (
 
-      <View style={Style.mainContainerView}>
+      <SafeAreaView style={Style.mainContainerView}>
         
-              <Text style={Style.text}>We're not ready for this area. Homepage</Text>
-              <NavBar/>
+
+              <NavBar style={Style.navBarContainer} language={language} chooseLanguage={chooseLanguage}/>
               <IslandContainer selectIsland={selectIsland} assignCurrentQuestion={assignCurrentQuestion}/>
               <Text>selectedIsland = {selectedIsland} States: name = {name}. language = {language}.</Text>
-      </View>
+      </SafeAreaView>
     )
   }
 
@@ -75,13 +75,13 @@ const MainContainer = () => {
 
     return (
 
-      <View style={Style.mainContainerView}>
+      <SafeAreaView style={Style.mainContainerView}>
         
+        <NavBar style={Style.navBarContainer} language={language} chooseLanguage={chooseLanguage}/>
               <Text style={Style.text}>this is the questions page</Text>
-              <NavBar/>
               <QuestionContainer selectedIsland={selectedIsland} assignCurrentQuestion={assignCurrentQuestion}/>
               <Text>currentQuestion={currentQuestion} selectedIsland = {selectedIsland} States: name = {name}. language = {language}.</Text>
-      </View>
+      </SafeAreaView>
     )
   }
 

@@ -1,19 +1,18 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 import Style from '../styles/Style';
 import LanguageChoiceButton from './LanguageChoiceButton';
 import LevelBar from './LevelBar';
 import ScoresButton from './ScoresButton';
 
-const NavBar = () => {
+const NavBar = ({language, chooseLanguage}) => {
 
     return (
-        <View style={Style.field}>
-            <Text>hello</Text>
-            <LanguageChoiceButton/>
+        <SafeAreaView style={Style.navBar}>
+            <LanguageChoiceButton language={language} chooseLanguage={chooseLanguage}/>
             <LevelBar/>
             <ScoresButton/>
-        </View>
+        </SafeAreaView>
     )
 
 }

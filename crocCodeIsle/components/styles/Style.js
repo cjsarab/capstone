@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native';
 export default Style = StyleSheet.create({
 
     mainContainerView: {
-        flex: 1,
-        justifyContent: 'center',
+        flex: 2,
+        // justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'darkslateblue'
       },
@@ -33,4 +33,25 @@ export default Style = StyleSheet.create({
       fontSize: 20,
       textAlign: 'center',
     },
+
+    navBarContainer: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+    },
+
+    navBar: {
+      flex: 3,
+      flexDirection: 'row',
+    },
+
+    navBarButton: {
+      backgroundColor: 'grey',
+      width: 80,
+      height: 80,
+      borderWidth: 3,
+      borderColor: 'black',
+      borderRadius: 10,
+    }
 });
