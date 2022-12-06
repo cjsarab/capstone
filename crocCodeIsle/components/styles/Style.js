@@ -78,11 +78,20 @@ export default Style = StyleSheet.create({
     },
 
     navBarButton: {
-      backgroundColor: 'grey',
+      backgroundColor: '#f4e4f4',
       width: 80,
       height: 80,
       borderWidth: 3,
       borderColor: 'black',
       borderRadius: 10,
-    }
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+
+    languageLogo: {
+      width: 60,
+      height: 60,
+      resizeMode: 'contain',
+    },
+
 });

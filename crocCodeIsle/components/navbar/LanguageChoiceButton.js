@@ -1,6 +1,9 @@
 import React from 'react';
-import {View, Text, Pressable} from 'react-native';
+import {View, Image, Pressable} from 'react-native';
 import Style from '../styles/Style';
+import pythonlogo from '../assets/PythonLogo.png';
+import jslogo from '../assets/JSLogo.png';
+import javalogo from '../assets/JavaLogo.png';
 
 
 const LanguageChoiceButton = ({language, chooseLanguage})=>{
@@ -10,24 +13,23 @@ const LanguageChoiceButton = ({language, chooseLanguage})=>{
     }
     
     var image;
+
     if (language == 'Python') {
-        image = 'P'
+        image = pythonlogo
     }
 
     else if (language == 'Javascript') {
-        image = 'JS'
+        image = jslogo
     }
 
     else if (language == 'Java') {
-        image = 'J'
+        image = javalogo
     }
 
     return (
         <View>
             <Pressable style={Style.navBarButton} onPress={(event)=>onPress()}>
-                <Text style={Style.text}>
-                    {image}
-                </Text>
+                <Image style={Style.languageLogo} source={image} />
             </Pressable>
         </View>
     );

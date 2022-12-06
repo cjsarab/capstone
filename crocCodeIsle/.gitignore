@@ -7,15 +7,14 @@
 !/containers
 !/containers/*
 !/components/*
-!/components/logo/*
-!/components/styles/*
-!/components/ui/*
-!/components/setup/*
-!/components/navbar/*
+!/components/assets/*
 !/components/islandcontainer/*
+!/components/logo/*
+!/components/navbar/*
 !/components/questioncontainer/*
 !/components/scores/*
-
+!/components/setup/*
+!/components/styles/*
 
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { View, Text, Image, Pressable, StyleSheet } from 'react-native';
 import Style from '../styles/Style';
 
 
@@ -10,17 +10,17 @@ const LanguageSelector = ({chooseLanguage}) => {
     chooseLanguage(text)
   };
 
-  const python = "Python";
+  const python = "Python"
   const javascript = "Javascript";
   const java = "Java";
-
 
   return (
     <View style={Style.field}>
 
       <Pressable style={({ pressed }) => pressed ? [styles.languageChoiceButton, styles.pressed] : styles.languageChoiceButton } 
           onPress={(event) => onPress(python)}>
-        <Text style={Style.text}>Python</Text>
+            <Text style={Style.text}>Python</Text>
+
       </Pressable>
 
       <Pressable style={({ pressed }) => pressed ? [styles.languageChoiceButton, styles.pressed] : styles.languageChoiceButton } 
