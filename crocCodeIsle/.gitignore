@@ -4,6 +4,9 @@
 # ...except the ones we want
 !.gitignore
 !App.js
+!/containers
+!/containers/*
+!/components/*
 !/components/logo/*
 !/components/styles/*
 !/components/ui/*
@@ -11,6 +14,8 @@
 !/components/navbar/*
 !/components/islandcontainer/*
 !/components/questioncontainer/*
-!/containers
-!/components/*
-!/containers/*
+!/components/scores/*
+
+
+
+
