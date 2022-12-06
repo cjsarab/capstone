@@ -9,6 +9,7 @@ import LanguageSelector from '../components/setup/LanguageSelector';
 import NavBar from '../components/navbar/NavBar';
 import IslandContainer from '../components/islandcontainer/IslandContainer';
 import QuestionContainer from '../components/questioncontainer/QuestionContainer';
+import ScorePage from '../components/scores/ScorePage';
 
 
 const MainContainer = () => {
@@ -67,7 +68,7 @@ const MainContainer = () => {
   else if(name !== "" && language !== "" && viewScore == true) {
     return (
       <SafeAreaView style={Style.mainContainerView}>
-        <Text> im the scores</Text>
+        <ScorePage assignViewScoreTo={assignViewScoreTo} />
       </SafeAreaView>
     );
   }
