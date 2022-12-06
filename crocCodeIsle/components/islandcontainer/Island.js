@@ -4,12 +4,13 @@ import Style from '../styles/Style';
 
 
 
-const Island = ({selectIsland, island_id}) => {
+const Island = ({selectIsland, island_id, assignCurrentQuestion}) => {
 
 
         const onPress = (id)=>{
             console.log(id)
             selectIsland(id)
+            assignCurrentQuestion(1)
         };
 
     return (

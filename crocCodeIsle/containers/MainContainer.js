@@ -8,12 +8,14 @@ import Style from '../components/styles/Style';
 import LanguageSelector from '../components/setup/LanguageSelector';
 import NavBar from '../components/navbar/NavBar';
 import IslandContainer from '../components/islandcontainer/IslandContainer';
+import QuestionContainer from '../components/questioncontainer/QuestionContainer';
 
 const MainContainer = () => {
 
   const [name, setName] = useState ("")
   const [language, setLanguage] = useState ("")
   const[selectedIsland, setSelectedIsland] = useState(null)
+  const[currentQuestion, setCurrentQuestion]= useState(null)
 
   function addName(name) {
     console.log(name)
@@ -28,6 +30,11 @@ const MainContainer = () => {
   function selectIsland(island_id){
     console.log(island_id)
     tempIsland = setSelectedIsland(island_id)
+  };
+
+  function assignCurrentQuestion(question_id){
+    console.log(question_id)
+    tempCurrentQuestion = setCurrentQuestion(question_id)
   };
 
   if (name == "") {
@@ -50,7 +57,7 @@ const MainContainer = () => {
     );
   }
 
-  else if (name !== "" && language !== "") {
+  else if (name !== "" && language !== "" && selectedIsland == null) {
 
     return (
 
@@ -58,11 +65,27 @@ const MainContainer = () => {
         
               <Text style={Style.text}>We're not ready for this area. Homepage</Text>
               <NavBar/>
-              <IslandContainer selectIsland={selectIsland}/>
+              <IslandContainer selectIsland={selectIsland} assignCurrentQuestion={assignCurrentQuestion}/>
               <Text>selectedIsland = {selectedIsland} States: name = {name}. language = {language}.</Text>
       </View>
     )
   }
+
+  else if (name !== "" && language !== "" && selectedIsland !== null) {
+
+    return (
+
+      <View style={Style.mainContainerView}>
+        
+              <Text style={Style.text}>this is the questions page</Text>
+              <NavBar/>
+              <QuestionContainer selectedIsland={selectedIsland} assignCurrentQuestion={assignCurrentQuestion}/>
+              <Text>currentQuestion={currentQuestion} selectedIsland = {selectedIsland} States: name = {name}. language = {language}.</Text>
+      </View>
+    )
+  }
+
+
 };
 
 export default MainContainer;
