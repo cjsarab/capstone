@@ -12,8 +12,7 @@ const Island = ({islandData, selectIsland, assignCurrentQuestion}) => {
   };
 
   const id = islandData[1]['id'];
-  
-  
+  //  duncan says - maybe we just pass the id down not the whole islandData
 
   return (
     <View>

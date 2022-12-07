@@ -17,7 +17,7 @@ const MainContainer = () => {
   const [name, setName] = useState ("");
   const [language, setLanguage] = useState ("");
   const [selectedIsland, setSelectedIsland] = useState(null);
-  const [currentQuestion, setCurrentQuestion] = useState(null);
+  const [currentQuestion, setCurrentQuestion] = useState(1);
   const [viewScore, setViewScore] = useState(false);
 
   const [islands, setIslands] = useState([]);
@@ -60,51 +60,28 @@ const MainContainer = () => {
     tempViewScore = setViewScore(bool)
   };
 
-  const islandToMap = Object.entries(islands)
-  const islandItems= islandToMap.map((islandItem, index) => {
-    return(
-      islandItem
-    )
-  });
-
-  // const islandLanguage = islandItems[0][1]['language'];
-  // const islandLanguage = islandItems[0][1];
-
-  // console.log("islandLanguage - ");
-  // console.log(islandLanguage);
-
-  console.log("isLoading");
-  console.log(isLoading);
+  
   if(isLoading){
     console.log("I'm inside the islands == [] activity indicator bit");
     return(
-      <Text>asdasddsa</Text>
+      <Text>Loading....</Text>
     )
   }
 
   else if (name == "") {
     
-    console.log(islands);
-
-    const variable = islands[0]['language'];
-
-    // console.log("variable");
-    // console.log(variable);
 
     return (
       <SafeAreaView style={Style.mainContainerView}>
         <Logo />
         <NameEntry addName={addName}/>
-        <Text> State: {name} variable : {variable} </Text>
+        <Text> State: {name} </Text>
       </SafeAreaView>
     );
   }
 
   else if (name != "" && language == "") {
 
-    console.log("islands - ");
-    console.log(islands[0]);
-    // const language = islands[0].language;
 
     return (
       <SafeAreaView style={Style.mainContainerView}>
@@ -137,7 +114,7 @@ const MainContainer = () => {
     return (
       <SafeAreaView style={Style.mainContainerView}>  
         <NavBar style={Style.navBarContainer} language={language} chooseLanguage={chooseLanguage} assignViewScoreTo={assignViewScoreTo} selectIsland={selectIsland}/>
-        <QuestionContainer selectedIsland={selectedIsland} assignCurrentQuestion={assignCurrentQuestion}/>
+        <QuestionContainer islands={islands} selectedIsland={selectedIsland} currentQuestion={currentQuestion} assignCurrentQuestion={assignCurrentQuestion}/>
       </SafeAreaView>
     );
   }
