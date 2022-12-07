@@ -6,10 +6,13 @@ import Style from '../styles/Style';
 const Island = ({islandData, selectIsland, assignCurrentQuestion}) => {
 
   const onPress = (id) => {
-    console.log(id)
+    console.log("Island ID = " + id)
     selectIsland(id)
     assignCurrentQuestion(1)
   };
+
+  //In the above onPress function we need to 
+  // assign the current question more correctly
 
   const id = islandData[1]['id'];
   //  duncan says - maybe we just pass the id down not the whole islandData

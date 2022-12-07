@@ -6,7 +6,6 @@ import Style from '../styles/Style';
 const LanguageSelector = ({chooseLanguage}) => {
 
   const onPress = (text) => {
-    console.log(text)
     chooseLanguage(text)
   };
 

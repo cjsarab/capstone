@@ -140,7 +140,8 @@ const MainContainer = () => {
           islands={islands} 
           selectedIsland={selectedIsland} 
           currentQuestion={currentQuestion} 
-          assignCurrentQuestion={assignCurrentQuestion}/>
+          assignCurrentQuestion={assignCurrentQuestion}
+          selectIsland={selectIsland}/>
 
         <Text> selectedIsland = {selectedIsland}</Text>
 
