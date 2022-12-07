@@ -11,7 +11,6 @@ import IslandContainer from '../components/islandcontainer/IslandContainer';
 import QuestionContainer from '../components/questioncontainer/QuestionContainer';
 import ScorePage from '../components/scores/ScorePage';
 
-
 const MainContainer = () => {
 
   const [name, setName] = useState ("");
@@ -19,6 +18,19 @@ const MainContainer = () => {
   const [selectedIsland, setSelectedIsland] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [viewScore, setViewScore] = useState(false);
+
+  const [islands, setIslands] = useState([]);
+
+
+  useEffect(() => {
+    getIslands();
+  }, []);
+
+  const getIslands = function(){
+    fetch("http://localhost:8080/questionislands/")
+    .then(res => res.json())
+    .then(data => setIslands(data))
+  }
 
   function addName(name) {
     console.log("State (name) = " + name)
@@ -46,11 +58,15 @@ const MainContainer = () => {
   };
 
   if (name == "") {
+
+    console.log("islands - ");
+    console.log(islands[0].language);
+    const language = islands[0].language;
     return (
       <SafeAreaView style={Style.mainContainerView}>
         <Logo />
         <NameEntry addName={addName}/>
-        <Text> State: {name} </Text>
+        <Text> State: {name} language {islands[0].language} </Text>
       </SafeAreaView>
     );
   }
