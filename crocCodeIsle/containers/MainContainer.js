@@ -76,7 +76,7 @@ const MainContainer = () => {
   else if (name !== "" && language !== "" && selectedIsland == null) {
     return (
       <SafeAreaView style={Style.mainContainerView}>
-        <NavBar style={Style.navBarContainer} language={language} chooseLanguage={chooseLanguage} assignViewScoreTo={assignViewScoreTo}/>
+        <NavBar style={Style.navBarContainer} language={language} chooseLanguage={chooseLanguage} assignViewScoreTo={assignViewScoreTo} selectIsland={selectIsland}/>
         <IslandContainer selectIsland={selectIsland} assignCurrentQuestion={assignCurrentQuestion}/>
         <Text>selectedIsland = {selectedIsland} States: name = {name}. language = {language}.</Text>
       </SafeAreaView>
@@ -86,7 +86,7 @@ const MainContainer = () => {
   else if (name !== "" && language !== "" && selectedIsland !== null) {
     return (
       <SafeAreaView style={Style.mainContainerView}>  
-        <NavBar style={Style.navBarContainer} language={language} chooseLanguage={chooseLanguage} assignViewScoreTo={assignViewScoreTo}/>
+        <NavBar style={Style.navBarContainer} language={language} chooseLanguage={chooseLanguage} assignViewScoreTo={assignViewScoreTo} selectIsland={selectIsland}/>
         <QuestionContainer selectedIsland={selectedIsland} assignCurrentQuestion={assignCurrentQuestion}/>
       </SafeAreaView>
     );

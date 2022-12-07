@@ -6,11 +6,11 @@ import LevelBar from './LevelBar';
 import ScoresButton from './ScoresButton';
 
 
-const NavBar = ({language, chooseLanguage, assignViewScoreTo}) => {
+const NavBar = ({language, chooseLanguage, assignViewScoreTo, selectIsland}) => {
 
     return (
         <SafeAreaView style={Style.navBar}>
-            <LanguageChoiceButton language={language} chooseLanguage={chooseLanguage}/>
+            <LanguageChoiceButton language={language} chooseLanguage={chooseLanguage} selectIsland={selectIsland}/>
             <LevelBar/>
             <ScoresButton assignViewScoreTo={assignViewScoreTo}/>
         </SafeAreaView>

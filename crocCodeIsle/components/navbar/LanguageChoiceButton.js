@@ -6,10 +6,11 @@ import jslogo from '../assets/JSLogo.png';
 import javalogo from '../assets/JavaLogo.png';
 
 
-const LanguageChoiceButton = ({language, chooseLanguage})=>{
+const LanguageChoiceButton = ({language, chooseLanguage, selectIsland})=>{
 
     const onPress = () => {
         chooseLanguage("")
+        selectIsland(null)
     }
     
     var image;
