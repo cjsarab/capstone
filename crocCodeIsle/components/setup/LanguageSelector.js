@@ -19,7 +19,7 @@ const LanguageSelector = ({chooseLanguage}) => {
 
       <Pressable style={({ pressed }) => pressed ? [styles.languageChoiceButton, styles.pressed] : styles.languageChoiceButton } 
           onPress={(event) => onPress(python)}>
-            <Text style={Style.text}>Python</Text>
+          <Text style={Style.text}>Python</Text>
 
       </Pressable>
 

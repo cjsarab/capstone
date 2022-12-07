@@ -32,8 +32,7 @@ const MainContainer = () => {
     .then(res => res.json())
     .then((data) => {  setIslands(data); setIsLoading(false); }
     )
-    
-  }
+  };
 
   function addName(name) {
     console.log("State (name) = " + name)
@@ -60,17 +59,17 @@ const MainContainer = () => {
     tempViewScore = setViewScore(bool)
   };
 
+
   
-  if(isLoading){
-    console.log("I'm inside the islands == [] activity indicator bit");
+  if (isLoading) {
+    console.log("isLoading = true. App is most likely fetching data.");
     return(
       <Text>Loading....</Text>
-    )
+    );
   }
 
   else if (name == "") {
     
-
     return (
       <SafeAreaView style={Style.mainContainerView}>
         <Logo />
@@ -82,7 +81,6 @@ const MainContainer = () => {
 
   else if (name != "" && language == "") {
 
-
     return (
       <SafeAreaView style={Style.mainContainerView}>
         <Logo />
@@ -93,6 +91,7 @@ const MainContainer = () => {
   }
 
   else if(name !== "" && language !== "" && viewScore == true) {
+
     return (
       <SafeAreaView style={Style.mainContainerView}>
         <ScorePage assignViewScoreTo={assignViewScoreTo} />
@@ -101,23 +100,53 @@ const MainContainer = () => {
   }
 
   else if (name !== "" && language !== "" && selectedIsland == null) {
+
     return (
       <SafeAreaView style={Style.mainContainerView}>
-        <NavBar style={Style.navBarContainer} language={language} chooseLanguage={chooseLanguage} assignViewScoreTo={assignViewScoreTo} selectIsland={selectIsland}/>
-        <IslandContainer islands={islands} language={language} selectIsland={selectIsland} assignCurrentQuestion={assignCurrentQuestion}/>
-        <Text>selectedIsland = {selectedIsland} States: name = {name}. language = {language}.</Text>
+
+        <NavBar 
+          style={Style.navBarContainer}
+
+          language={language} 
+          chooseLanguage={chooseLanguage} 
+          assignViewScoreTo={assignViewScoreTo} 
+          selectIsland={selectIsland}/>
+
+        <IslandContainer
+          islands={islands}
+          language={language} 
+          selectIsland={selectIsland} 
+          assignCurrentQuestion={assignCurrentQuestion}/>
+
+        <Text>States: name = {name}. language = {language}.</Text>
       </SafeAreaView>
     );
   }
 
   else if (name !== "" && language !== "" && selectedIsland !== null) {
+
     return (
       <SafeAreaView style={Style.mainContainerView}>  
-        <NavBar style={Style.navBarContainer} language={language} chooseLanguage={chooseLanguage} assignViewScoreTo={assignViewScoreTo} selectIsland={selectIsland}/>
-        <QuestionContainer islands={islands} selectedIsland={selectedIsland} currentQuestion={currentQuestion} assignCurrentQuestion={assignCurrentQuestion}/>
+
+        <NavBar
+          style={Style.navBarContainer}
+
+          language={language}
+          chooseLanguage={chooseLanguage}
+          assignViewScoreTo={assignViewScoreTo} 
+          selectIsland={selectIsland}/>
+
+        <QuestionContainer 
+          islands={islands} 
+          selectedIsland={selectedIsland} 
+          currentQuestion={currentQuestion} 
+          assignCurrentQuestion={assignCurrentQuestion}/>
+
+        <Text> selectedIsland = {selectedIsland}</Text>
+
       </SafeAreaView>
     );
-  }
+  };
 
 };
 
