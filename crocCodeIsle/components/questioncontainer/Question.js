@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, SafeAreaView, Pressable} from 'react-native';
+import {Text, SafeAreaView, View, Pressable, StyleSheet} from 'react-native';
 import Style from '../styles/Style';
 
 
@@ -61,15 +61,73 @@ const Question = ({islandQuestions, selectedIsland, currentQuestion, assignCurre
 
     return (
         <SafeAreaView style={Style.field}>
-            <Text>
+            <Text style={styles.questionTitle}>
                 { questionText }
             </Text>
-            <Pressable onPress={(event) => onPress(response1)}><Text>{response1}</Text></Pressable>
-            <Pressable onPress={(event) => onPress(response2)}><Text>{response2}</Text></Pressable>
-            <Pressable onPress={(event) => onPress(response3)}><Text>{response3}</Text></Pressable>
-            <Pressable onPress={(event) => onPress(response4)}><Text>{response4}</Text></Pressable>
+
+            <View style={styles.answerField}>
+                <Pressable style={styles.answerButton}
+                    onPress={(event) => onPress(response1)}>
+                        <Text style={Style.text}>
+                            {response1}
+                        </Text>
+                </Pressable>
+
+                <Pressable style={styles.answerButton}
+                    onPress={(event) => onPress(response2)}>
+                        <Text style={Style.text}>
+                            {response2}
+                        </Text>
+                </Pressable>
+
+                <Pressable style={styles.answerButton}
+                    onPress={(event) => onPress(response3)}>
+                        <Text style={Style.text}>
+                            {response3}
+                        </Text>
+                </Pressable>
+
+                <Pressable style={styles.answerButton}
+                    onPress={(event) => onPress(response4)}>
+                        <Text style={Style.text}>
+                            {response4}
+                        </Text>
+                </Pressable>
+            </View>
+            
         </SafeAreaView>
     );
 };
+
+const styles = StyleSheet.create({
+
+    questionTitle: {
+      textAlign: 'center',
+      fontSize: 35,
+      padding: 20,
+    },
+
+    answerField: {
+        flex: 1,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        padding: 10
+    },
+  
+    answerButton: {
+      height: 180,
+      width: 162,
+      padding: 10,
+      margin: 5,
+      borderColor: 'black',
+      borderWidth: 2,
+      backgroundColor: 'peru',
+      textAlign: 'center',
+      justifyContent: 'center',
+      textColor: 'black',
+      fontSize: 30
+    }
+  
+  })
 
 export default Question;
