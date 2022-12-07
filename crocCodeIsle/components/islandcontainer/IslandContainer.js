@@ -4,17 +4,27 @@ import Style from '../styles/Style';
 import Island from './Island';
 
 
-const IslandContainer = ({selectIsland, assignCurrentQuestion}) => {
+const IslandContainer = ({islands, language, selectIsland, assignCurrentQuestion}) => {
 
-    const island1 = 1;
-    const island2 = 2;
-    const island3 = 3;
+
+
+    const islandToMap = Object.entries(islands)
+    const islandItems= islandToMap.map((islandData, index) => {
+        
+        if(language == islandData[1]['language'])
+        {
+            return(
+                <Island islandData={islandData} key={index} selectIsland={selectIsland} assignCurrentQuestion={assignCurrentQuestion} />
+                
+            )
+        }
+    });
 
     return (
         <ScrollView style={Style.islandContainer}>
-            <Island selectIsland={selectIsland} island_id={island1} assignCurrentQuestion={assignCurrentQuestion} />
-            <Island selectIsland={selectIsland} island_id={island2} assignCurrentQuestion={assignCurrentQuestion}/>
-            <Island selectIsland={selectIsland} island_id={island3} assignCurrentQuestion={assignCurrentQuestion}/>
+            
+            {islandItems}
+
         </ScrollView>
     );
 };

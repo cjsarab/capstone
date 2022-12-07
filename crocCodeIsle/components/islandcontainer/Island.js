@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, Pressable } from 'react-native';
 import Style from '../styles/Style';
 
 
-const Island = ({selectIsland, island_id, assignCurrentQuestion}) => {
+const Island = ({islandData, selectIsland, assignCurrentQuestion}) => {
 
   const onPress = (id) => {
     console.log(id)
@@ -11,10 +11,14 @@ const Island = ({selectIsland, island_id, assignCurrentQuestion}) => {
     assignCurrentQuestion(1)
   };
 
+  const id = islandData[1]['id'];
+  
+  
+
   return (
     <View>
       <Pressable style={({ pressed }) => pressed ? [styles.islandButton, styles.pressed] : styles.islandButton } 
-          onPress={(event) => onPress(island_id)}>
+          onPress={(event) => onPress(id)}>
       <Text style={Style.text}>Island</Text>
       </Pressable>
     </View>

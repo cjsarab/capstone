@@ -127,7 +127,7 @@ const MainContainer = () => {
     return (
       <SafeAreaView style={Style.mainContainerView}>
         <NavBar style={Style.navBarContainer} language={language} chooseLanguage={chooseLanguage} assignViewScoreTo={assignViewScoreTo} selectIsland={selectIsland}/>
-        <IslandContainer selectIsland={selectIsland} assignCurrentQuestion={assignCurrentQuestion}/>
+        <IslandContainer islands={islands} language={language} selectIsland={selectIsland} assignCurrentQuestion={assignCurrentQuestion}/>
         <Text>selectedIsland = {selectedIsland} States: name = {name}. language = {language}.</Text>
       </SafeAreaView>
     );
