@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, SafeAreaView, View, Pressable, StyleSheet} from 'react-native';
+import {Text, SafeAreaView, View, Pressable, StyleSheet, TextInput} from 'react-native';
 import Style from '../styles/Style';
 
 
@@ -27,11 +27,28 @@ const Question = ({islandQuestions, selectedIsland, currentQuestion, assignCurre
         } else {
             assignCurrentQuestion(1)
 
-            selectIsland(selectedIsland + 1)
-            //This now moves the user onto the second island, but we will want 
-            //to display the island container first
+            selectIsland(null)
+            // to-do: unlock the next island
         };
     };
+
+    const submitTextAnswer = (text) => {
+
+        if (text == response1){
+            console.log('correct')
+        }
+        else{
+            console.log('incorrect')
+        }
+        if (currentQuestion < 3) {
+            assignCurrentQuestion(currentQuestion + 1)
+        } else {
+            assignCurrentQuestion(1)
+
+            selectIsland(null)
+            // to-do: unlock the next island
+        };
+    }
 
     const questionToShow = islandQuestions[currentQuestion];
     
@@ -58,37 +75,39 @@ const Question = ({islandQuestions, selectedIsland, currentQuestion, assignCurre
     var response3 = islandQuestionItems[currentQuestion-1]['response3']
     var response4 = islandQuestionItems[currentQuestion-1]['response4']
     var correctResponse = islandQuestionItems[currentQuestion-1]['correct_response']
+    var questionType = islandQuestionItems[currentQuestion-1]['question_type']
 
-    return (
-        <SafeAreaView style={Style.field}>
+    if (questionType != 'text_input'){
+        return (
+            <SafeAreaView style={Style.field}>
             <Text style={styles.questionTitle}>
                 { questionText }
             </Text>
 
             <View style={styles.answerField}>
                 <Pressable style={styles.answerButton}
-                    onPress={(event) => onPress(response1)}>
+                    onPress={(event) => onPress('1')}>
                         <Text style={Style.text}>
                             {response1}
                         </Text>
                 </Pressable>
 
                 <Pressable style={styles.answerButton}
-                    onPress={(event) => onPress(response2)}>
+                    onPress={(event) => onPress('2')}>
                         <Text style={Style.text}>
                             {response2}
                         </Text>
                 </Pressable>
 
                 <Pressable style={styles.answerButton}
-                    onPress={(event) => onPress(response3)}>
+                    onPress={(event) => onPress('3')}>
                         <Text style={Style.text}>
                             {response3}
                         </Text>
                 </Pressable>
 
                 <Pressable style={styles.answerButton}
-                    onPress={(event) => onPress(response4)}>
+                    onPress={(event) => onPress('4')}>
                         <Text style={Style.text}>
                             {response4}
                         </Text>
@@ -96,8 +115,26 @@ const Question = ({islandQuestions, selectedIsland, currentQuestion, assignCurre
             </View>
             
         </SafeAreaView>
-    );
-};
+        );
+    }
+
+    else{
+        return (
+            <SafeAreaView style={Style.field}>
+            <Text style={styles.questionTitle}>
+                { questionText }
+            </Text>
+            <TextInput 
+            style={Style.input}
+            autoCorrect={false}
+            autoCapitalize={false}
+            onSubmitEditing={(event) => submitTextAnswer(event.nativeEvent.text)}
+            placeholder="Your Text..." />
+
+            </SafeAreaView>
+        )
+    }
+}
 
 const styles = StyleSheet.create({
 

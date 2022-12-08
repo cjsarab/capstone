@@ -15,13 +15,14 @@ const Island = ({islandData, selectIsland, assignCurrentQuestion}) => {
   // assign the current question more correctly
 
   const id = islandData[1]['id'];
+  const islandName = islandData[1]['name']
   //  duncan says - maybe we just pass the id down not the whole islandData
 
   return (
     <View>
       <Pressable style={({ pressed }) => pressed ? [styles.islandButton, styles.pressed] : styles.islandButton } 
           onPress={(event) => onPress(id)}>
-      <Text style={Style.text}>Island</Text>
+      <Text style={Style.text}>{islandName}</Text>
       </Pressable>
     </View>
   );
