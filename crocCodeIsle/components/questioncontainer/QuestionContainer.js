@@ -4,7 +4,14 @@ import Style from '../styles/Style';
 import Question from './Question';
 
 
-const QuestionContainer = ({islands, selectedIsland, currentQuestion, isQuestionAnswered, assignCurrentQuestion, selectIsland, assignIsQuestionAnswered}) => {
+const QuestionContainer = ({
+    islands, 
+    selectedIsland, 
+    currentQuestion, 
+    isQuestionAnswered, 
+    assignCurrentQuestion, 
+    selectIsland, 
+    assignIsQuestionAnswered}) => {
 
     const questionsToMap = Object.entries(islands)
     const questionItems= questionsToMap.map((islandData, index) => {

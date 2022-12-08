@@ -1,8 +1,14 @@
 import React from 'react';
-import {View, Text, Pressable} from 'react-native';
+import {View, Text, Pressable, StyleSheet} from 'react-native';
 import Style from '../styles/Style';
 
-const FinishedBox = ({assignIsQuestionAnswered, currentQuestion, assignCurrentQuestion, selectIsland}) => {
+const FinishedBox = ({
+    assignIsQuestionAnswered,
+    currentQuestion, 
+    assignCurrentQuestion, 
+    selectIsland
+}) => {
+
     const onPress = () => {
         if (currentQuestion < 3) {
             assignCurrentQuestion(currentQuestion + 1)
@@ -18,14 +24,20 @@ const FinishedBox = ({assignIsQuestionAnswered, currentQuestion, assignCurrentQu
 
     return (
         <View>
-        <Pressable
-            onPress={(event) => onPress()}>
-                <Text style={Style.text}>
-                    move on!
-                </Text>
-        </Pressable>
+            <Pressable
+                onPress={(event) => onPress()}>
+                    <Text style={Style.text}>
+                        move on!
+                    </Text>
+            </Pressable>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+
+
+
+})
 
 export default FinishedBox;

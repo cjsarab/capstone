@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import {View, Text, SafeAreaView, ActivityIndicator} from 'react-native';
+import {View, Text, SafeAreaView, ActivityIndicator, StatusBar, Animated, StyleSheet} from 'react-native';
 import NameEntry from '../components/setup/NameEntry';
 import Logo from '../components/logo/Logo';
 import Style from '../components/styles/Style';
@@ -23,6 +23,7 @@ const MainContainer = () => {
   const [islands, setIslands] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
+
 
   useEffect(() => {
     getIslands();
@@ -61,14 +62,20 @@ const MainContainer = () => {
   };
 
   function assignIsQuestionAnswered(bool){
-    console.log('state:' + isQuestionAnswered)
+    console.log("State (isQuestionAnswered) = " + isQuestionAnswered)
     tempIsQuestionAnswered = setIsQuestionAnswered(bool)
   }
   
   if (isLoading) {
     console.log("isLoading = true. App is most likely fetching data.");
     return(
-      <Text>Loading....</Text>
+      <SafeAreaView style={Style.progressField}>
+        <Text style={Style.text}>Loading...</Text>
+          <View style={Style.progressBar}>
+            <Animated.View style={{ ...StyleSheet.absoluteFill, backgroundColor: 'lime', width: '50%' }} />
+          </View>
+        <Text style={Style.text}>50%</Text>
+      </SafeAreaView>
     );
   }
 

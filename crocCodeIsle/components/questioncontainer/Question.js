@@ -5,10 +5,15 @@ import FinishedBox from './FinishedBox';
 
 
 
-const Question = ({islandQuestions, selectedIsland, currentQuestion, isQuestionAnswered, assignCurrentQuestion, selectIsland, assignIsQuestionAnswered}) => {
+const Question = ({
+    islandQuestions, 
+    selectedIsland, 
+    currentQuestion, 
+    isQuestionAnswered, 
+    assignCurrentQuestion, 
+    selectIsland, 
+    assignIsQuestionAnswered}) => {
 
-    // console.log("currentQuestion");
-    // console.log(currentQuestion);
 
     const onPress = (response) => {
 
@@ -16,11 +21,11 @@ const Question = ({islandQuestions, selectedIsland, currentQuestion, isQuestionA
 
         if (response == correctResponse) {
 
-            console.log(response + "was the correct response")
+            console.log(response + " was the correct response")
 
         } else {
 
-            console.log(response + "was the incorrect response")
+            console.log(response + " was the incorrect response")
 
         };
         // need to add here message to the user to show correct or incorrect answer
@@ -31,11 +36,11 @@ const Question = ({islandQuestions, selectedIsland, currentQuestion, isQuestionA
 
         assignIsQuestionAnswered(true)
 
-        if (text == response1){
-            console.log('correct')
+        if (text == response1) {
+            console.log(text + ' was the correct answer!')
         }
-        else{
-            console.log('incorrect')
+        else {
+            console.log(text + ' was incorrect!')
         }
     }
 
@@ -44,7 +49,7 @@ const Question = ({islandQuestions, selectedIsland, currentQuestion, isQuestionA
     const islandQuestionsToMap = Object.entries(islandQuestions)
     const islandQuestionItems = islandQuestionsToMap.map((questionData, index) => {
 
-        console.log(currentQuestion + " should equal " + questionData[1]['question_position'])
+      // console.log(currentQuestion + " should equal " + questionData[1]['question_position'])
 
         if(currentQuestion == questionData[1]['question_position']) {
             
@@ -69,49 +74,56 @@ const Question = ({islandQuestions, selectedIsland, currentQuestion, isQuestionA
     if (isQuestionAnswered == true){
         return (
             <SafeAreaView style={Style.field}>
-            <Text style={styles.questionTitle}>
-                { questionText }
-            </Text>
-            <FinishedBox assignIsQuestionAnswered={assignIsQuestionAnswered} currentQuestion={currentQuestion} assignCurrentQuestion={assignCurrentQuestion} selectIsland={selectIsland}/>
+
+                <Text style={styles.questionTitle}>
+                    { questionText }
+                </Text>
+
+                <FinishedBox 
+                assignIsQuestionAnswered={assignIsQuestionAnswered} 
+                currentQuestion={currentQuestion} 
+                assignCurrentQuestion={assignCurrentQuestion} 
+                selectIsland={selectIsland}/>
+
             </SafeAreaView>
         )
     }
     if (questionType != 'text_input'){
         return (
             <SafeAreaView style={Style.field}>
-            <Text style={styles.questionTitle}>
-                { questionText }
-            </Text>
+                <Text style={styles.questionTitle}>
+                    { questionText }
+                </Text>
 
-            <View style={styles.answerField}>
-                <Pressable style={styles.answerButton}
-                    onPress={(event) => onPress('1')}>
-                        <Text style={Style.text}>
-                            {response1}
-                        </Text>
-                </Pressable>
+                <View style={styles.answerField}>
+                    <Pressable style={styles.answerButton}
+                        onPress={(event) => onPress('1')}>
+                            <Text style={Style.text}>
+                                {response1}
+                            </Text>
+                    </Pressable>
 
-                <Pressable style={styles.answerButton}
-                    onPress={(event) => onPress('2')}>
-                        <Text style={Style.text}>
-                            {response2}
-                        </Text>
-                </Pressable>
+                    <Pressable style={styles.answerButton}
+                        onPress={(event) => onPress('2')}>
+                            <Text style={Style.text}>
+                                {response2}
+                            </Text>
+                    </Pressable>
 
-                <Pressable style={styles.answerButton}
-                    onPress={(event) => onPress('3')}>
-                        <Text style={Style.text}>
-                            {response3}
-                        </Text>
-                </Pressable>
+                    <Pressable style={styles.answerButton}
+                        onPress={(event) => onPress('3')}>
+                            <Text style={Style.text}>
+                                {response3}
+                            </Text>
+                    </Pressable>
 
-                <Pressable style={styles.answerButton}
-                    onPress={(event) => onPress('4')}>
-                        <Text style={Style.text}>
-                            {response4}
-                        </Text>
-                </Pressable>
-            </View>
+                    <Pressable style={styles.answerButton}
+                        onPress={(event) => onPress('4')}>
+                            <Text style={Style.text}>
+                                {response4}
+                            </Text>
+                    </Pressable>
+                </View>
             
         </SafeAreaView>
         );
@@ -119,16 +131,18 @@ const Question = ({islandQuestions, selectedIsland, currentQuestion, isQuestionA
 
     else{
         return (
-            <SafeAreaView style={Style.field}>
-            <Text style={styles.questionTitle}>
-                { questionText }
-            </Text>
-            <TextInput 
-            style={Style.input}
-            autoCorrect={false}
-            autoCapitalize={false}
-            onSubmitEditing={(event) => submitTextAnswer(event.nativeEvent.text)}
-            placeholder="Your Text..." />
+            <SafeAreaView >
+                <Text style={styles.questionTitle}>
+                    { questionText }
+                </Text>
+                <View style={Style.textInputField}>
+                    <TextInput 
+                    style={styles.textInput}
+                    autoCorrect={false}
+                    autoCapitalize='none'
+                    onSubmitEditing={(event) => submitTextAnswer(event.nativeEvent.text)}
+                    placeholder="Your Text..." />
+                </View>
 
             </SafeAreaView>
         )
@@ -162,7 +176,22 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       textColor: 'black',
       fontSize: 30
-    }
+    },
+
+    textInput: {
+        justifyContent: 'center',
+        height: 50,
+        width: 220,
+        fontSize: 22,
+        color: 'black',
+        backgroundColor: 'white',
+        borderRadius: 20,
+        textAlign: 'center',
+        alignContent: 'center',
+        marginTop: '33%',
+        marginLeft: '20%',
+        marginRight: '20%',
+    },
   
   })
 

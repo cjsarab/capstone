@@ -94,4 +94,22 @@ export default Style = StyleSheet.create({
       resizeMode: 'contain',
     },
 
+    progressField: {
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 8
+    },
+
+    progressBar: {
+      width: '80%',
+      height: 40,
+      borderColor: 'black',
+      backgroundColor: 'antiquewhite',
+      borderWidth: 3,
+      borderRadius: 10,
+      flexDirection: 'row',
+    }
+
 });
