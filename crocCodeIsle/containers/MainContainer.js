@@ -22,6 +22,7 @@ const MainContainer = () => {
 
   const [islands, setIslands] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
 
   useEffect(() => {
     getIslands();
@@ -59,7 +60,10 @@ const MainContainer = () => {
     tempViewScore = setViewScore(bool)
   };
 
-
+  function assignIsQuestionAnswered(bool){
+    console.log('state:' + isQuestionAnswered)
+    tempIsQuestionAnswered = setIsQuestionAnswered(bool)
+  }
   
   if (isLoading) {
     console.log("isLoading = true. App is most likely fetching data.");
@@ -139,9 +143,12 @@ const MainContainer = () => {
         <QuestionContainer 
           islands={islands} 
           selectedIsland={selectedIsland} 
-          currentQuestion={currentQuestion} 
+          currentQuestion={currentQuestion}
+          isQuestionAnswered={isQuestionAnswered} 
           assignCurrentQuestion={assignCurrentQuestion}
-          selectIsland={selectIsland}/>
+          selectIsland={selectIsland}
+          assignIsQuestionAnswered={assignIsQuestionAnswered}
+          />
 
         <Text> selectedIsland = {selectedIsland}</Text>
 

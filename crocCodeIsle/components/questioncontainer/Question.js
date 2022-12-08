@@ -1,14 +1,18 @@
 import React from 'react';
 import {Text, SafeAreaView, View, Pressable, StyleSheet, TextInput} from 'react-native';
 import Style from '../styles/Style';
+import FinishedBox from './FinishedBox';
 
 
-const Question = ({islandQuestions, selectedIsland, currentQuestion, assignCurrentQuestion, selectIsland}) => {
+
+const Question = ({islandQuestions, selectedIsland, currentQuestion, isQuestionAnswered, assignCurrentQuestion, selectIsland, assignIsQuestionAnswered}) => {
 
     // console.log("currentQuestion");
     // console.log(currentQuestion);
 
     const onPress = (response) => {
+
+        assignIsQuestionAnswered(true)
 
         if (response == correctResponse) {
 
@@ -21,18 +25,11 @@ const Question = ({islandQuestions, selectedIsland, currentQuestion, assignCurre
         };
         // need to add here message to the user to show correct or incorrect answer
 
-
-        if (currentQuestion < 3) {
-            assignCurrentQuestion(currentQuestion + 1)
-        } else {
-            assignCurrentQuestion(1)
-
-            selectIsland(null)
-            // to-do: unlock the next island
-        };
     };
 
     const submitTextAnswer = (text) => {
+
+        assignIsQuestionAnswered(true)
 
         if (text == response1){
             console.log('correct')
@@ -40,14 +37,6 @@ const Question = ({islandQuestions, selectedIsland, currentQuestion, assignCurre
         else{
             console.log('incorrect')
         }
-        if (currentQuestion < 3) {
-            assignCurrentQuestion(currentQuestion + 1)
-        } else {
-            assignCurrentQuestion(1)
-
-            selectIsland(null)
-            // to-do: unlock the next island
-        };
     }
 
     const questionToShow = islandQuestions[currentQuestion];
@@ -77,6 +66,16 @@ const Question = ({islandQuestions, selectedIsland, currentQuestion, assignCurre
     var correctResponse = islandQuestionItems[currentQuestion-1]['correct_response']
     var questionType = islandQuestionItems[currentQuestion-1]['question_type']
 
+    if (isQuestionAnswered == true){
+        return (
+            <SafeAreaView style={Style.field}>
+            <Text style={styles.questionTitle}>
+                { questionText }
+            </Text>
+            <FinishedBox assignIsQuestionAnswered={assignIsQuestionAnswered} currentQuestion={currentQuestion} assignCurrentQuestion={assignCurrentQuestion} selectIsland={selectIsland}/>
+            </SafeAreaView>
+        )
+    }
     if (questionType != 'text_input'){
         return (
             <SafeAreaView style={Style.field}>
