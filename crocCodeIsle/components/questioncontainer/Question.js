@@ -70,6 +70,8 @@ const Question = ({
     var response4 = islandQuestionItems[currentQuestion-1]['response4']
     var correctResponse = islandQuestionItems[currentQuestion-1]['correct_response']
     var questionType = islandQuestionItems[currentQuestion-1]['question_type']
+    var questionCode = islandQuestionItems[currentQuestion-1]['question_code']
+
 
     if (isQuestionAnswered == true){
         return (
@@ -94,6 +96,11 @@ const Question = ({
                 <Text style={styles.questionTitle}>
                     { questionText }
                 </Text>
+                <View style={styles.questionCodeView}>
+                <Text style={styles.questionCodeText}>
+                    { questionCode }
+                </Text>
+                </View>
 
                 <View style={styles.answerField}>
                     <Pressable style={styles.answerButton}
@@ -135,6 +142,13 @@ const Question = ({
                 <Text style={styles.questionTitle}>
                     { questionText }
                 </Text>
+
+                <View style={styles.questionCodeView}>
+                <Text style={styles.questionCodeText}>
+                    { questionCode }
+                </Text>
+                </View>
+
                 <View style={Style.textInputField}>
                     <TextInput 
                     style={styles.textInput}
@@ -153,8 +167,24 @@ const styles = StyleSheet.create({
 
     questionTitle: {
       textAlign: 'center',
-      fontSize: 35,
-      padding: 20,
+      fontWeight: 'bold',
+      fontSize: 25,
+      padding: 10,
+    },
+
+    questionCodeView: {
+        backgroundColor: 'red',
+        borderTopColor: 'black',
+        borderBottomColor: 'black',
+        borderTopWidth: 3,
+        borderBottomWidth: 3,
+    },
+
+    questionCodeText: {
+        fontFamily: 'courier',
+        textAlign: 'left',
+        fontSize: 19,
+        padding: 10
     },
 
     answerField: {
