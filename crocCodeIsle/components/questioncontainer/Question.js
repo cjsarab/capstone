@@ -22,11 +22,7 @@ const Question = ({
     determineUserLevel
 }) => {
 
-    console.log("Answer picked globally = " + answerPicked)
-
     const onPress = (response) => {
-
-        console.log("Answer picked locally = " + answerPicked)
 
         assignIsQuestionAnswered(true)
         assignAnswerPicked(response)
@@ -55,9 +51,6 @@ const Question = ({
         assignIsQuestionAnswered(true)
         assignAnswerPicked(text)
 
-
-        console.log("text : "+ text)
-        console.log("answer picked: "+ answerPicked)
 
         if (text == response1) {
             console.log(text + ' was the correct answer!')
