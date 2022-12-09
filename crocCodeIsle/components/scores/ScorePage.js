@@ -42,8 +42,8 @@ const ScorePage = ({topFiveUsers, assignViewScoreTo, assignTopFiveUsers}) => {
         <Text style={styles.userOutput} >
           {topFiveUsersToOutput}
         </Text>
-        <Pressable style={styles.moveOnButton} onPress={(event)=>onPress()}>
-            <Text style={Style.text}>back</Text>
+        <Pressable style={styles.backButton} onPress={(event)=>onPress()}>
+            <Text style={Style.text}>Back</Text>
         </Pressable>
     </View>
   );
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
       paddingTop: 120
   },
 
-  moveOnButton: {
+  backButton: {
     marginTop: '15%',
     marginLeft: '39%',
     marginRight: '39%',

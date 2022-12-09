@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, SafeAreaView, View, Pressable, StyleSheet, TextInput} from 'react-native';
 import Style from '../styles/Style';
 import FinishedBox from './FinishedBox';
+import LevelDeterminer from '../services/LevelDeterminer';
 
 
 
@@ -17,7 +18,8 @@ const Question = ({
     selectIsland, 
     assignIsQuestionAnswered,
     assignAnswerPicked,
-    determineUserTotalExperience
+    determineUserTotalExperience,
+    determineUserLevel
 }) => {
 
     console.log("Answer picked globally = " + answerPicked)
@@ -33,8 +35,13 @@ const Question = ({
 
             console.log(response + " was the correct response")
 
-            const experience = questionPoints + userTotalExperience;
+            var experience;
+            experience = userTotalExperience + questionPoints;
             determineUserTotalExperience(experience)
+
+            var level = workOutUserLevelByExperience(experience)
+            console.log ( "Level = " + level)
+            determineUserLevel(level)
 
         } else {
 
@@ -54,8 +61,15 @@ const Question = ({
 
         if (text == response1) {
             console.log(text + ' was the correct answer!')
-            const experience = questionPoints + userTotalExperience;
+
+            var experience;
+            experience = userTotalExperience + questionPoints;
             determineUserTotalExperience(experience)
+
+            var level = workOutUserLevelByExperience(experience)
+            console.log ( "Level = " + level)
+            determineUserLevel(level)
+
         }
         else {
             console.log(text + ' was incorrect!')

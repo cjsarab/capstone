@@ -12,6 +12,7 @@ const NavBar = ({
     levelUpButtonPressed,
     chooseLanguage,
     userTotalExperience,
+    userLevel,
 
     assignViewScoreTo, 
     selectIsland, 
@@ -30,6 +31,7 @@ const NavBar = ({
 
             <LevelBar 
             userTotalExperience={userTotalExperience}
+            userLevel={userLevel}
             levelUpButtonPressed={levelUpButtonPressed} 
             assignLevelUpButtonPressed={assignLevelUpButtonPressed}/>
 

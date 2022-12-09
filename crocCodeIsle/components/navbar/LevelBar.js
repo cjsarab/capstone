@@ -3,7 +3,7 @@ import {View, Text, Pressable, StyleSheet } from 'react-native';
 import Style from '../styles/Style';
 
 
-const LevelBar = ({userTotalExperience, levelUpButtonPressed, assignLevelUpButtonPressed}) => {
+const LevelBar = ({userTotalExperience, userLevel, levelUpButtonPressed, assignLevelUpButtonPressed}) => {
 
     const onPress = () => {
         assignLevelUpButtonPressed(true)
@@ -13,7 +13,8 @@ const LevelBar = ({userTotalExperience, levelUpButtonPressed, assignLevelUpButto
         <View>
             <Pressable style={styles.levelUpButton} 
             onPress={(event)=>onPress()}>
-                <Text style={Style.text}>User total experience = {userTotalExperience}</Text>
+                <Text style={Style.text}>User total experience = {userTotalExperience}. </Text>
+                <Text style={Style.text}> User level = {userLevel} </Text>
             </Pressable>
         </View>
     );

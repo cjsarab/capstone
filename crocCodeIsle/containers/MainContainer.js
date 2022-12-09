@@ -12,6 +12,7 @@ import QuestionContainer from '../components/questioncontainer/QuestionContainer
 import ScorePage from '../components/scores/ScorePage';
 import Island from '../components/islandcontainer/Island';
 import UserService from '../components/services/UserService';
+import UserLevelUpPage from '../components/scores/UserLevelUpPage';
 
 const MainContainer = () => {
 
@@ -29,7 +30,8 @@ const MainContainer = () => {
   const [topFiveUsers, setTopFiveUsers] = useState([])
 
   const [levelUpButtonPressed, setLevelUpButtonPressed] = useState(false);
-  const [userTotalExperience, setUserTotalExperience] = useState (0);
+  const [userTotalExperience, setUserTotalExperience] = useState(0);
+  const [userLevel, setUserLevel] = useState(1);
 
 
   useEffect(() => {
@@ -93,6 +95,11 @@ const MainContainer = () => {
     console.log("State (userTotalExperience) = " + userTotalExperience)
     tempUserTotalExperience = setUserTotalExperience(experience)
   }
+
+  function determineUserLevel(level) {
+    tempUserLevel = setUserLevel(level)
+    console.log("State (userLevel) = " + userLevel)
+  }
   
   if (isLoading) {
     console.log("isLoading = true. App is most likely fetching data.");
@@ -129,7 +136,15 @@ const MainContainer = () => {
     );
   }
 
-  else if(name !== "" && language !== "" && viewScore == true) {
+  else if (name !== "" && language !== "" && levelUpButtonPressed == true) {
+    return (
+      <SafeAreaView style={Style.mainContainerView}>
+        <UserLevelUpPage userTotalExperience={userTotalExperience} userLevel={userLevel} assignLevelUpButtonPressed={assignLevelUpButtonPressed}/>
+      </SafeAreaView>
+    )
+  }
+
+  else if (name !== "" && language !== "" && viewScore == true) {
 
     return (
       <SafeAreaView style={Style.mainContainerView}>
@@ -150,6 +165,7 @@ const MainContainer = () => {
           topFiveUsers={topFiveUsers}
           levelUpButtonPressed={levelUpButtonPressed}
           userTotalExperience={userTotalExperience}
+          userLevel={userLevel}
 
           chooseLanguage={chooseLanguage} 
           assignViewScoreTo={assignViewScoreTo} 
@@ -180,6 +196,7 @@ const MainContainer = () => {
           topFiveUsers={topFiveUsers}
           levelUpButtonPressed={levelUpButtonPressed}
           userTotalExperience={userTotalExperience}
+          userLevel={userLevel}
 
           chooseLanguage={chooseLanguage}
           assignViewScoreTo={assignViewScoreTo} 
@@ -200,6 +217,7 @@ const MainContainer = () => {
           assignIsQuestionAnswered={assignIsQuestionAnswered}
           assignAnswerPicked={assignAnswerPicked}
           determineUserTotalExperience={determineUserTotalExperience}
+          determineUserLevel={determineUserLevel}
           />
 
         <Text> selectedIsland = {selectedIsland}</Text>

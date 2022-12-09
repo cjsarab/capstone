@@ -16,7 +16,8 @@ const QuestionContainer = ({
     selectIsland, 
     assignIsQuestionAnswered,
     assignAnswerPicked,
-    determineUserTotalExperience
+    determineUserTotalExperience,
+    determineUserLevel
 }) => {
 
     const questionsToMap = Object.entries(islands)
@@ -39,7 +40,8 @@ const QuestionContainer = ({
                     selectIsland={selectIsland}
                     assignIsQuestionAnswered={assignIsQuestionAnswered}
                     assignAnswerPicked={assignAnswerPicked}
-                    determineUserTotalExperience={determineUserTotalExperience} />
+                    determineUserTotalExperience={determineUserTotalExperience}
+                    determineUserLevel={determineUserLevel} />
             )
         }
     });
