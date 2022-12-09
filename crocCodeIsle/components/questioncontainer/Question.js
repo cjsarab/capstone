@@ -10,11 +10,14 @@ const Question = ({
     selectedIsland, 
     currentQuestion, 
     isQuestionAnswered,
-    answerPicked, 
+    answerPicked,
+    userTotalExperience,
+
     assignCurrentQuestion, 
     selectIsland, 
     assignIsQuestionAnswered,
-    assignAnswerPicked
+    assignAnswerPicked,
+    determineUserTotalExperience
 }) => {
 
     console.log("Answer picked globally = " + answerPicked)
@@ -30,13 +33,14 @@ const Question = ({
 
             console.log(response + " was the correct response")
 
+            const experience = questionPoints + userTotalExperience;
+            determineUserTotalExperience(experience)
+
         } else {
 
             console.log(response + " was the incorrect response")
 
         };
-        // need to add here message to the user to show correct or incorrect answer
-
     };
 
     const submitTextAnswer = (text) => {
@@ -50,6 +54,8 @@ const Question = ({
 
         if (text == response1) {
             console.log(text + ' was the correct answer!')
+            const experience = questionPoints + userTotalExperience;
+            determineUserTotalExperience(experience)
         }
         else {
             console.log(text + ' was incorrect!')
@@ -83,6 +89,7 @@ const Question = ({
     var correctResponse = islandQuestionItems[currentQuestion-1]['correct_response']
     var questionType = islandQuestionItems[currentQuestion-1]['question_type']
     var questionCode = islandQuestionItems[currentQuestion-1]['question_code']
+    var questionPoints = islandQuestionItems[currentQuestion-1]['points_value']
 
     var textOfCorrectResponse;
     var textOfAnswerPicked;

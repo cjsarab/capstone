@@ -28,9 +28,13 @@ const MainContainer = () => {
 
   const [topFiveUsers, setTopFiveUsers] = useState([])
 
+  const [levelUpButtonPressed, setLevelUpButtonPressed] = useState(false);
+  const [userTotalExperience, setUserTotalExperience] = useState (0);
+
 
   useEffect(() => {
     getIslands();
+    assignTopFiveUsers(UserService.getTop5Users());
   }, []);
 
   const getIslands = function(){
@@ -78,6 +82,16 @@ const MainContainer = () => {
   function assignTopFiveUsers(array) {
     console.log("State (topFiveUsers) = " + topFiveUsers)
     tempTopFiveUsers = setTopFiveUsers(array)
+  }
+
+  function assignLevelUpButtonPressed(bool) {
+    console.log("State (levelUpButtonPressed) = " + levelUpButtonPressed)
+    tempLevelUpButtonPressed = setLevelUpButtonPressed(bool)
+  }
+
+  function determineUserTotalExperience(experience) {
+    console.log("State (userTotalExperience) = " + userTotalExperience)
+    tempUserTotalExperience = setUserTotalExperience(experience)
   }
   
   if (isLoading) {
@@ -134,10 +148,14 @@ const MainContainer = () => {
 
           language={language}
           topFiveUsers={topFiveUsers}
+          levelUpButtonPressed={levelUpButtonPressed}
+          userTotalExperience={userTotalExperience}
+
           chooseLanguage={chooseLanguage} 
           assignViewScoreTo={assignViewScoreTo} 
           selectIsland={selectIsland}
-          assignTopFiveUsers={assignTopFiveUsers}/>
+          assignTopFiveUsers={assignTopFiveUsers}
+          assignLevelUpButtonPressed={assignLevelUpButtonPressed}/>
 
         <IslandContainer
           islands={islands}
@@ -160,10 +178,14 @@ const MainContainer = () => {
 
           language={language}
           topFiveUsers={topFiveUsers}
+          levelUpButtonPressed={levelUpButtonPressed}
+          userTotalExperience={userTotalExperience}
+
           chooseLanguage={chooseLanguage}
           assignViewScoreTo={assignViewScoreTo} 
           selectIsland={selectIsland}
-          assignTopFiveUsers={assignTopFiveUsers}/>
+          assignTopFiveUsers={assignTopFiveUsers}
+          assignLevelUpButtonPressed={assignLevelUpButtonPressed}/>
 
         <QuestionContainer 
           islands={islands} 
@@ -171,10 +193,13 @@ const MainContainer = () => {
           currentQuestion={currentQuestion}
           isQuestionAnswered={isQuestionAnswered} 
           answerPicked={answerPicked}
+          userTotalExperience={userTotalExperience}
+
           assignCurrentQuestion={assignCurrentQuestion}
           selectIsland={selectIsland}
           assignIsQuestionAnswered={assignIsQuestionAnswered}
           assignAnswerPicked={assignAnswerPicked}
+          determineUserTotalExperience={determineUserTotalExperience}
           />
 
         <Text> selectedIsland = {selectedIsland}</Text>

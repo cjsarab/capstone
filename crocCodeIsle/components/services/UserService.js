@@ -2,15 +2,27 @@ const baseUsersURL = 'http://localhost:8080/users/';
 
 const UserService = {
 
-    getUsers() {
-        return fetch(baseUsersURL)
-        .then(res => res.json());
+    async getUsers() {
+        const response = await fetch(baseUsersURL)
+        .then(res => res.json())
+        .then(responseJSON => console.log('getUsers() result:', responseJSON));
+
+        return response;
     },
 
-    getTop5Users() {
-        return fetch(baseUsersURL + "top5")
-        .then(res => res.json());
+    async getTop5Users() {
+        const response = await fetch(baseUsersURL + "top5")
+        .then(res => res.json())
+        // .then(responseJSON => console.log('getTop5Users() result:', responseJSON));
+
+        console.log("Inside Top5Users here is response - ")
+        console.log(response);
+        return response;
     },
+    // getTop5Users() {
+    //     return fetch(baseUsersURL + "top5")
+    //     .then(res => res.json());
+    // },
 
     addUser(payload) {
 

@@ -12,7 +12,7 @@ const onPress = () => {
     return (
         <View>
             <Pressable style={Style.navBarButton} onPress={(event)=>onPress()}>
-                <Text style={Style.text}>view score</Text>
+                <Text style={Style.text}>Top 5</Text>
             </Pressable>
         </View>
     );
