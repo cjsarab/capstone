@@ -11,6 +11,7 @@ import IslandContainer from '../components/islandcontainer/IslandContainer';
 import QuestionContainer from '../components/questioncontainer/QuestionContainer';
 import ScorePage from '../components/scores/ScorePage';
 import Island from '../components/islandcontainer/Island';
+import UserService from '../components/services/UserService';
 
 const MainContainer = () => {
 
@@ -24,6 +25,8 @@ const MainContainer = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
   const [answerPicked, setAnswerPicked] = useState(null)
+
+  const [topFiveUsers, setTopFiveUsers] = useState([])
 
 
   useEffect(() => {
@@ -71,6 +74,11 @@ const MainContainer = () => {
     console.log("State (answerPicked) = " + answerPicked)
     tempAnswerPicked = setAnswerPicked(answer)
   }
+
+  function assignTopFiveUsers(array) {
+    console.log("State (topFiveUsers) = " + topFiveUsers)
+    tempTopFiveUsers = setTopFiveUsers(array)
+  }
   
   if (isLoading) {
     console.log("isLoading = true. App is most likely fetching data.");
@@ -111,7 +119,7 @@ const MainContainer = () => {
 
     return (
       <SafeAreaView style={Style.mainContainerView}>
-        <ScorePage assignViewScoreTo={assignViewScoreTo} />
+        <ScorePage topFiveUsers={topFiveUsers} assignViewScoreTo={assignViewScoreTo} assignTopFiveUsers={assignTopFiveUsers} />
       </SafeAreaView>
     );
   }
@@ -124,10 +132,12 @@ const MainContainer = () => {
         <NavBar 
           style={Style.navBarContainer}
 
-          language={language} 
+          language={language}
+          topFiveUsers={topFiveUsers}
           chooseLanguage={chooseLanguage} 
           assignViewScoreTo={assignViewScoreTo} 
-          selectIsland={selectIsland}/>
+          selectIsland={selectIsland}
+          assignTopFiveUsers={assignTopFiveUsers}/>
 
         <IslandContainer
           islands={islands}
@@ -149,9 +159,11 @@ const MainContainer = () => {
           style={Style.navBarContainer}
 
           language={language}
+          topFiveUsers={topFiveUsers}
           chooseLanguage={chooseLanguage}
           assignViewScoreTo={assignViewScoreTo} 
-          selectIsland={selectIsland}/>
+          selectIsland={selectIsland}
+          assignTopFiveUsers={assignTopFiveUsers}/>
 
         <QuestionContainer 
           islands={islands} 

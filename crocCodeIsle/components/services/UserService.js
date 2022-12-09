@@ -1,9 +1,14 @@
-const baseUsersURL = 'http://localhost:8080/users';
+const baseUsersURL = 'http://localhost:8080/users/';
 
 const UserService = {
 
     getUsers() {
         return fetch(baseUsersURL)
+        .then(res => res.json());
+    },
+
+    getTop5Users() {
+        return fetch(baseUsersURL + "top5")
         .then(res => res.json());
     },
 

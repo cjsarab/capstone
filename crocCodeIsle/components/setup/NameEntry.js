@@ -10,11 +10,11 @@ const NameEntry = ({addName}) => {
     addName(name)
 
     var points = 0;
-
     const user = {
       name,
       points
     }
+    
     UserService.addUser(user)
   };
 
