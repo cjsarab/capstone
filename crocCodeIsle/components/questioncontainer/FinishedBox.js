@@ -6,7 +6,12 @@ const FinishedBox = ({
     assignIsQuestionAnswered,
     currentQuestion, 
     assignCurrentQuestion, 
-    selectIsland
+    answerPicked,
+    selectIsland,
+    textOfCorrectResponse,
+    textOfAnswerPicked
+    
+
 }) => {
 
     const onPress = () => {
@@ -24,6 +29,9 @@ const FinishedBox = ({
 
     return (
         <View>
+            <Text>
+                Correct Response: {textOfCorrectResponse}. Answerpickedtext : {textOfAnswerPicked}
+            </Text>
             <Pressable
                 onPress={(event) => onPress()}>
                     <Text style={Style.text}>

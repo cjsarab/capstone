@@ -9,15 +9,22 @@ const Question = ({
     islandQuestions, 
     selectedIsland, 
     currentQuestion, 
-    isQuestionAnswered, 
+    isQuestionAnswered,
+    answerPicked, 
     assignCurrentQuestion, 
     selectIsland, 
-    assignIsQuestionAnswered}) => {
+    assignIsQuestionAnswered,
+    assignAnswerPicked
+}) => {
 
+    console.log("Answer picked globally = " + answerPicked)
 
     const onPress = (response) => {
 
+        console.log("Answer picked locally = " + answerPicked)
+
         assignIsQuestionAnswered(true)
+        assignAnswerPicked(response)
 
         if (response == correctResponse) {
 
@@ -72,6 +79,41 @@ const Question = ({
     var questionType = islandQuestionItems[currentQuestion-1]['question_type']
     var questionCode = islandQuestionItems[currentQuestion-1]['question_code']
 
+    var textOfCorrectResponse;
+    var textOfAnswerPicked;
+
+
+    if (questionType == "multiple_choice" || "fill_blank") {
+
+        //Dealing with correct response
+        if (correctResponse == '1') {
+            textOfCorrectResponse = response1
+        }
+        else if (correctResponse == '2') {
+            textOfCorrectResponse = response2
+        }
+        else if (correctResponse == '3') {
+            textOfCorrectResponse = response3
+        }
+        else if (correctResponse == '4') {
+            textOfCorrectResponse = response4
+        }
+
+        //Dealing with the answer picked text
+        if (answerPicked == '1') {
+            textOfAnswerPicked = response1
+        }
+        else if (answerPicked == '2') {
+            textOfAnswerPicked = response2
+        }
+        else if (answerPicked == '3') {
+            textOfAnswerPicked = response3
+        }
+        else if (answerPicked == '4') {
+            textOfAnswerPicked = response4
+        }
+        console.log("textOfAnswerPicked = " + textOfAnswerPicked)
+    }
 
     if (isQuestionAnswered == true){
         return (
@@ -84,8 +126,12 @@ const Question = ({
                 <FinishedBox 
                 assignIsQuestionAnswered={assignIsQuestionAnswered} 
                 currentQuestion={currentQuestion} 
-                assignCurrentQuestion={assignCurrentQuestion} 
-                selectIsland={selectIsland}/>
+                assignCurrentQuestion={assignCurrentQuestion}
+                answerPicked={answerPicked}
+                selectIsland={selectIsland}
+                textOfCorrectResponse={textOfCorrectResponse}
+                textOfAnswerPicked={textOfAnswerPicked}
+                />
 
             </SafeAreaView>
         )

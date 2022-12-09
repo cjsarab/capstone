@@ -23,6 +23,7 @@ const MainContainer = () => {
   const [islands, setIslands] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
+  const [answerPicked, setAnswerPicked] = useState(null)
 
 
   useEffect(() => {
@@ -64,6 +65,11 @@ const MainContainer = () => {
   function assignIsQuestionAnswered(bool){
     console.log("State (isQuestionAnswered) = " + isQuestionAnswered)
     tempIsQuestionAnswered = setIsQuestionAnswered(bool)
+  }
+
+  function assignAnswerPicked(answer) {
+    console.log("State (answerPicked) = " + answerPicked)
+    tempAnswerPicked = setAnswerPicked(answer)
   }
   
   if (isLoading) {
@@ -152,9 +158,11 @@ const MainContainer = () => {
           selectedIsland={selectedIsland} 
           currentQuestion={currentQuestion}
           isQuestionAnswered={isQuestionAnswered} 
+          answerPicked={answerPicked}
           assignCurrentQuestion={assignCurrentQuestion}
           selectIsland={selectIsland}
           assignIsQuestionAnswered={assignIsQuestionAnswered}
+          assignAnswerPicked={assignAnswerPicked}
           />
 
         <Text> selectedIsland = {selectedIsland}</Text>

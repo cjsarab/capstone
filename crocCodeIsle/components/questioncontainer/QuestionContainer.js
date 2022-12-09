@@ -8,10 +8,13 @@ const QuestionContainer = ({
     islands, 
     selectedIsland, 
     currentQuestion, 
-    isQuestionAnswered, 
+    isQuestionAnswered,
+    answerPicked, 
     assignCurrentQuestion, 
     selectIsland, 
-    assignIsQuestionAnswered}) => {
+    assignIsQuestionAnswered,
+    assignAnswerPicked
+}) => {
 
     const questionsToMap = Object.entries(islands)
     const questionItems= questionsToMap.map((islandData, index) => {
@@ -26,9 +29,11 @@ const QuestionContainer = ({
                     selectedIsland={selectedIsland}
                     currentQuestion={currentQuestion} 
                     isQuestionAnswered={isQuestionAnswered}
+                    answerPicked={answerPicked}
                     assignCurrentQuestion={assignCurrentQuestion}
                     selectIsland={selectIsland}
-                    assignIsQuestionAnswered={assignIsQuestionAnswered} />
+                    assignIsQuestionAnswered={assignIsQuestionAnswered}
+                    assignAnswerPicked={assignAnswerPicked} />
             )
         }
     });
