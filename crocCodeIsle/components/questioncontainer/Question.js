@@ -42,6 +42,11 @@ const Question = ({
     const submitTextAnswer = (text) => {
 
         assignIsQuestionAnswered(true)
+        assignAnswerPicked(text)
+
+
+        console.log("text : "+ text)
+        console.log("answer picked: "+ answerPicked)
 
         if (text == response1) {
             console.log(text + ' was the correct answer!')
@@ -83,7 +88,7 @@ const Question = ({
     var textOfAnswerPicked;
 
 
-    if (questionType == "multiple_choice" || "fill_blank") {
+    if (questionType == "multiple_choice" || questionType == "fill_blank") {
 
         //Dealing with correct response
         if (correctResponse == '1') {
@@ -114,6 +119,15 @@ const Question = ({
         }
         console.log("textOfAnswerPicked = " + textOfAnswerPicked)
     }
+    else if(questionType == "text_input"){
+        
+        textOfCorrectResponse = response1
+
+        textOfAnswerPicked = answerPicked
+
+
+
+    }
 
     if (isQuestionAnswered == true){
         return (
@@ -127,7 +141,6 @@ const Question = ({
                 assignIsQuestionAnswered={assignIsQuestionAnswered} 
                 currentQuestion={currentQuestion} 
                 assignCurrentQuestion={assignCurrentQuestion}
-                answerPicked={answerPicked}
                 selectIsland={selectIsland}
                 textOfCorrectResponse={textOfCorrectResponse}
                 textOfAnswerPicked={textOfAnswerPicked}
@@ -136,6 +149,8 @@ const Question = ({
             </SafeAreaView>
         )
     }
+
+
     if (questionType != 'text_input'){
         return (
             <SafeAreaView style={Style.field}>
@@ -212,10 +227,10 @@ const Question = ({
 const styles = StyleSheet.create({
 
     questionTitle: {
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: 25,
-      padding: 10,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        fontSize: 25,
+        padding: 10,
     },
 
     questionCodeView: {
