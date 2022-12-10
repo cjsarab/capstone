@@ -124,7 +124,7 @@ const MainContainer = () => {
   else if (name == "") {
     
     return (
-      <SafeAreaView style={Style.mainContainerView}>
+      <SafeAreaView style={styles.mainContainerNameEntryView}>
         <Logo />
         <NameEntry addName={addName} addUserId={addUserId}/>
         <Text> State: {name} </Text>
@@ -235,5 +235,16 @@ const MainContainer = () => {
   };
 
 };
+
+const styles = StyleSheet.create ({
+
+  mainContainerNameEntryView: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'darkslateblue'
+  },
+
+})
 
 export default MainContainer;

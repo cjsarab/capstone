@@ -41,6 +41,7 @@ export default Style = StyleSheet.create({
     },
     
     logo: {
+      fontFamily: 'arial',
       fontSize: 33,
       color: 'lime'
     },

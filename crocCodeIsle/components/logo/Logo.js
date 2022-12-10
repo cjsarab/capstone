@@ -1,13 +1,42 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View, Image, StyleSheet, SafeAreaView } from 'react-native';
 import Style from '../styles/Style';
+import CrocLogo from '../assets/CrocLogo.png'
+import IslandLogo from '../assets/IslandLogo.png'
+import TextLogo from '../assets/TextLogo.png';
 
 
 const Logo = () => {
   
   return (
-    <Text style={Style.logo}>Croc Code Isle</Text>
+    <SafeAreaView>
+      <View>
+        <Image style={styles.crocLogo} source = {CrocLogo} />
+      </View>
+      <View>
+        <Image style={styles.textLogo} source = {TextLogo} />
+      </View>
+    </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create ({
+
+  crocLogo: {
+    width: 240,
+    height: 240,
+    resizeMode: 'contain',
+    borderRadius: 50,
+  },
+
+  textLogo: {
+    width: 240,
+    height: 240,
+    resizeMode: 'contain',
+  },
+
+
+})
+
 
 export default Logo;
