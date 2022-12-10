@@ -4,7 +4,7 @@ import Style from '../styles/Style';
 import UserService from '../services/UserService';
 
 
-const NameEntry = ({addName}) => {
+const NameEntry = ({addName, addUserId}) => {
 
   const submitName = (name) => {
     addName(name)
@@ -16,6 +16,10 @@ const NameEntry = ({addName}) => {
     }
     
     UserService.addUser(user)
+    
+    // const userByName = UserService.getUserByName(name)
+    // console.log('userbyname:')
+    // console.log(userByName)
   };
 
   return (

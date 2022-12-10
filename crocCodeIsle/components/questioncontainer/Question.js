@@ -3,10 +3,12 @@ import {Text, SafeAreaView, View, Pressable, StyleSheet, TextInput} from 'react-
 import Style from '../styles/Style';
 import FinishedBox from './FinishedBox';
 import LevelDeterminer from '../services/LevelDeterminer';
+import UserService from '../services/UserService';
 
 
 
 const Question = ({
+    name,
     islandQuestions, 
     selectedIsland, 
     currentQuestion, 
@@ -34,6 +36,13 @@ const Question = ({
             var experience;
             experience = userTotalExperience + questionPoints;
             determineUserTotalExperience(experience)
+
+            const user = {
+              name,
+              experience
+            }
+
+            UserService.updateUser(user, name)
 
             var level = workOutUserLevelByExperience(experience)
             console.log ( "Level = " + level)

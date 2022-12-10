@@ -5,6 +5,7 @@ import Question from './Question';
 
 
 const QuestionContainer = ({
+    name,
     islands, 
     selectedIsland, 
     currentQuestion, 
@@ -27,6 +28,7 @@ const QuestionContainer = ({
             
             return (
                 <Question 
+                    name={name}
                     islandQuestions={islandData[1]['questions']}
                     key={index} 
 

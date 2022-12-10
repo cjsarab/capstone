@@ -17,6 +17,7 @@ import UserLevelUpPage from '../components/scores/UserLevelUpPage';
 const MainContainer = () => {
 
   const [name, setName] = useState ("");
+  const [userId, setUserId] = useState(null);
   const [language, setLanguage] = useState ("");
   const [selectedIsland, setSelectedIsland] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(1);
@@ -35,6 +36,7 @@ const MainContainer = () => {
 
 
   useEffect(() => {
+    // addUserId(UserService.getUserByName(name));
     getIslands();
     assignTopFiveUsers(UserService.getTop5Users());
   }, []);
@@ -49,6 +51,11 @@ const MainContainer = () => {
   function addName(name) {
     console.log("State (name) = " + name)
     tempName = setName(name)
+  };
+
+  function addUserId(id) {
+    console.log("State (id) = " + id)
+    tempUserId = setUserId(id)
   };
 
   function chooseLanguage(language) {
@@ -119,7 +126,7 @@ const MainContainer = () => {
     return (
       <SafeAreaView style={Style.mainContainerView}>
         <Logo />
-        <NameEntry addName={addName}/>
+        <NameEntry addName={addName} addUserId={addUserId}/>
         <Text> State: {name} </Text>
       </SafeAreaView>
     );
@@ -205,6 +212,7 @@ const MainContainer = () => {
           assignLevelUpButtonPressed={assignLevelUpButtonPressed}/>
 
         <QuestionContainer 
+          name={name}
           islands={islands} 
           selectedIsland={selectedIsland} 
           currentQuestion={currentQuestion}

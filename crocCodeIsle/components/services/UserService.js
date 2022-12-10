@@ -10,6 +10,19 @@ const UserService = {
         return response;
     },
 
+    // async getUserByName(name) {
+    //     console.log('name in getuserbyname:')
+    //     console.log(name)
+    //     var stringedName = name.toString()
+    //     var urlToHit = baseUsersURL + "name/" + stringedName 
+    //     const response = await fetch(urlToHit)
+    //     .then(res => res.json())
+    //     .then(responseJSON => console.log('getUserByName() result:', responseJSON));
+    //     return response;
+
+    // },
+
+
     async getTop5Users() {
         const response = await fetch(baseUsersURL + "top5")
         .then(res => res.json())
@@ -35,7 +48,19 @@ const UserService = {
             headers: { 'Content-Type': 'application/json' }
         })
         .then(res => res.json())
-    }
+    },
+
+    updateUser(user, name) {
+        var stringedName = name.toString()
+        return fetch(baseUsersURL + "/name/" + stringedName, {
+          method: 'PUT',
+          body: JSON.stringify(user),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+          .then(res => res.json());
+      },
 
 };
 
