@@ -53,14 +53,14 @@ const UserService = {
     updateUser(user, name) {
         var stringedName = name.toString()
         return fetch(baseUsersURL + "/name/" + stringedName, {
-          method: 'PUT',
-          body: JSON.stringify(user),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-          .then(res => res.json());
-      },
+            method: 'PUT',
+            body: JSON.stringify(user),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+            })
+            .then(res => res.json());
+        },
 
 };
 
