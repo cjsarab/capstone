@@ -9,34 +9,13 @@ const ScorePage = ({topFiveUsers, assignViewScoreTo, assignTopFiveUsers}) => {
       assignViewScoreTo(false)
   };
 
-  // const users = UserService.getUsers()
-  // console.log("in ScorePage, users - ")
-  // console.log(users)
-
-  // assignTopFiveUsers(UserService.getTop5Users())
-  // var topFiveUsersMadeInScorePage = UserService.getTop5Users()
-
-  // console.log("")
-  // console.log("Top5USERS XXXX - ");
-  // console.log(topFiveUsers);
-  // console.log("")
-
-  // console.log("Top5USERS with the underscore Z - ");
-  // console.log(topFiveUsers['_z']);
-
-  // console.log("")
-  // console.log("Top5USERS with the underscore Z and 0 - ");
-  // console.log(topFiveUsers['_z'][0]);
-  // console.log("")
-
   const topFiveUsersToOutput = 
         topFiveUsers['_z'][0]['name'] + ": " + topFiveUsers['_z'][0]['points'] + "\n" +
         topFiveUsers['_z'][1]['name'] + ": " + topFiveUsers['_z'][1]['points'] + "\n" +
         topFiveUsers['_z'][2]['name'] + ": " + topFiveUsers['_z'][2]['points'] + "\n" +
         topFiveUsers['_z'][3]['name'] + ": " + topFiveUsers['_z'][3]['points'] + "\n" +
         topFiveUsers['_z'][4]['name'] + ": " + topFiveUsers['_z'][4]['points'] 
-  // const islandQuestionItems = islandQuestionsToMap.map((questionData, index) => {
-
+  
   return (
     <View>
         <Text style={styles.userOutput} >

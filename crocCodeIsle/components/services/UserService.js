@@ -8,26 +8,16 @@ const UserService = {
         .then(responseJSON => console.log('getAllUsers() result:', responseJSON));
 
         return response;
-
     },
-
-    
-
 
     async getTop5Users() {
         const response = await fetch(baseUsersURL + "top5")
         .then(res => res.json())
-        // .then(responseJSON => console.log('getTop5Users() result:', responseJSON));
-
-        // console.log("Inside Top5Users here is response - ")
-        // console.log(response);
         return response;
     },
 
     
-
     addUser(payload) {
-
         console.log("Payload before stringification = " + payload)
         console.log("JSON Stringified = " +JSON.stringify(payload))
 

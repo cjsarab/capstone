@@ -68,8 +68,6 @@ const MainContainer = () => {
     fetch("http://localhost:8080/users/")
     .then(res => res.json())
     .then((data) => {  
-      console.log("in getAllUsersAtStartup here is data :");
-      console.log(data);
       setAllUsers(data); setIsLoadingAllUsers(false); }
     )
   };
@@ -123,13 +121,7 @@ const MainContainer = () => {
     console.log("State (topFiveUsers) = " + topFiveUsers)
   }
 
-  // function assignAllUsers(array) {
-    
-  //   tempAllUsers = setAllUsers(array)
-  //   console.log("State (allUsers) = " + allUsers)
-  //   console.log("tempAllUsers = " + tempAllUsers)
-  // }
-  
+
   // -- 
 
   function assignLevelUpButtonPressed(bool) {

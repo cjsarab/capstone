@@ -9,7 +9,6 @@ const FinishedBox = ({
     selectIsland,
     textOfCorrectResponse,
     textOfAnswerPicked
-    
 
 }) => {
 
@@ -28,8 +27,11 @@ const FinishedBox = ({
     if(textOfCorrectResponse==textOfAnswerPicked){
         return (
             <View>
-                <Text>
-                    CORRECT!!!!
+                <Text style={Style.text}>
+                    Well Done, 
+                </Text>
+                <Text style={Style.text}> 
+                    that was correct!
                 </Text>
                 <Pressable
                     style={styles.moveOnButton}
@@ -44,15 +46,15 @@ const FinishedBox = ({
     else{
         return (
             <View>
-                <Text>
-
-                    INCORRECCTTT!!!!
+                <Text style={Style.text}>
+                    Unfortunately that was not correct, 
                 </Text>
-                <Text>
-                    The correct response was : {textOfCorrectResponse}. 
+                
+                <Text style={Style.text}>
+                    The correct response was " {textOfCorrectResponse} "
                 </Text>
-                <Text>
-                    you chose : {textOfAnswerPicked}
+                <Text style={Style.text}>
+                    you chose " {textOfAnswerPicked} "
                 </Text>
                 
                     <Pressable
@@ -60,16 +62,13 @@ const FinishedBox = ({
                         onPress={(event) => onPress()}>
 
                             <Text style={Style.text}>
-                                move on!
+                                Continue
                             </Text>
                     </Pressable>
                 
             </View>
         )
     }
-
-
-
 }
 
 const styles = StyleSheet.create({
@@ -79,7 +78,7 @@ const styles = StyleSheet.create({
         marginLeft: '39%',
         marginRight: '39%',
         backgroundColor: '#f4e4f4',
-        width: 80,
+        width: 90,
         height: 80,
         borderWidth: 3,
         borderColor: 'black',
@@ -87,7 +86,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         }
-
 
 })
 

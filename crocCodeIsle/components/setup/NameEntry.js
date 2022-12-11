@@ -5,9 +5,6 @@ import UserService from '../services/UserService';
 
 const NameEntry = ({allUsers, addName, addUserId, determineUserTotalExperience}) => {
 
-  console.log("at start of NameEntry");
-  console.log(allUsers);
-
   const submitName = (name) => {
     // addName sets the state "name"
     addName(name);
@@ -16,11 +13,9 @@ const NameEntry = ({allUsers, addName, addUserId, determineUserTotalExperience})
     // If they do, we should get their points from the database, and put 
     // those points into state.
     // Otherwise we should add them to the database with 0 points
-    console.log("here we have all the users from the database, we want ot check if our name is in there - ")
-    console.log(allUsers);
 
     var index = allUsers.map(function(e) { return e.name; }).indexOf(name);
-    console.log("index : " + index);
+    // if the name just input by the user is not in the db index = -1
 
     if(index != -1) // if the current name is in the database
     {
@@ -39,14 +34,10 @@ const NameEntry = ({allUsers, addName, addUserId, determineUserTotalExperience})
         name,
         points
       }
-
       // this adds the user to the database
       UserService.addUser(user)
 
     }
-    // const userByName = UserService.getUserByName(name)
-    // console.log('userbyname:')
-    // console.log(userByName)
   };
 
   return (

@@ -6,7 +6,6 @@ import Style from '../styles/Style';
 const Island = ({islandData, selectIsland, assignCurrentQuestion}) => {
 
   const onPress = (id) => {
-    console.log("Island ID = " + id)
     selectIsland(id)
     assignCurrentQuestion(1)
   };

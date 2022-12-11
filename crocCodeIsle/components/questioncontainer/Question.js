@@ -5,8 +5,6 @@ import FinishedBox from './FinishedBox';
 import LevelDeterminer from '../services/LevelDeterminer';
 import UserService from '../services/UserService';
 
-
-
 const Question = ({
     name,
     islandQuestions, 
@@ -24,14 +22,13 @@ const Question = ({
     determineUserLevel
 }) => {
 
-    const onPress = (response) => {
+    // This onPress is only called for the fill in the blank and multiple choice Qs
+    const onPress = (response) => { 
 
         assignIsQuestionAnswered(true)
         assignAnswerPicked(response)
 
         if (response == correctResponse) {
-
-            console.log(response + " was the correct response")
 
             var points;
             points = userTotalExperience + questionPoints;
@@ -50,7 +47,7 @@ const Question = ({
 
         } else {
 
-            console.log(response + " was the incorrect response")
+            // console.log(response + " was the incorrect response")
 
         };
     };
@@ -89,8 +86,6 @@ const Question = ({
     
     const islandQuestionsToMap = Object.entries(islandQuestions)
     const islandQuestionItems = islandQuestionsToMap.map((questionData, index) => {
-
-      // console.log(currentQuestion + " should equal " + questionData[1]['question_position'])
 
         if(currentQuestion == questionData[1]['question_position']) {
             
@@ -147,7 +142,6 @@ const Question = ({
         else if (answerPicked == '4') {
             textOfAnswerPicked = response4
         }
-        // console.log("textOfAnswerPicked = " + textOfAnswerPicked)
     }
     else if(questionType == "text_input"){
         
@@ -284,19 +278,19 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         padding: 10
     },
-  
+
     answerButton: {
-      height: 180,
-      width: 162,
-      padding: 10,
-      margin: 5,
-      borderColor: 'black',
-      borderWidth: 2,
-      backgroundColor: 'peru',
-      textAlign: 'center',
-      justifyContent: 'center',
-      textColor: 'black',
-      fontSize: 30
+        height: 180,
+        width: 162,
+        padding: 10,
+        margin: 5,
+        borderColor: 'black',
+        borderWidth: 2,
+        backgroundColor: 'peru',
+        textAlign: 'center',
+        justifyContent: 'center',
+        textColor: 'black',
+        fontSize: 30
     },
 
     textInput: {
