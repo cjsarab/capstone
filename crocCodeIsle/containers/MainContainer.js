@@ -23,12 +23,20 @@ const MainContainer = () => {
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [viewScore, setViewScore] = useState(false);
 
+  
   const [islands, setIslands] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true); // this isLoading is to check we've loaded the island
+
+  const[allUsers, setAllUsers] = useState([])
+  const [isLoadingAllUsers, setIsLoadingAllUsers] = useState(true); // this isLoading is to check we've loaded the island
+
+
+
   const [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
   const [answerPicked, setAnswerPicked] = useState(null)
 
   const [topFiveUsers, setTopFiveUsers] = useState([])
+  
 
   const [levelUpButtonPressed, setLevelUpButtonPressed] = useState(false);
   const [userTotalExperience, setUserTotalExperience] = useState(0);
@@ -37,14 +45,32 @@ const MainContainer = () => {
 
   useEffect(() => {
     // addUserId(UserService.getUserByName(name));
+        // assignAllUsers(UserService.getAllUsers());
+    
     getIslands();
+
+    getAllUsersAtStartup();
+
     assignTopFiveUsers(UserService.getTop5Users());
+
+
   }, []);
 
   const getIslands = function(){
     fetch("http://localhost:8080/questionislands/")
     .then(res => res.json())
     .then((data) => {  setIslands(data); setIsLoading(false); }
+    )
+  };
+
+
+  const getAllUsersAtStartup = function(){
+    fetch("http://localhost:8080/users/")
+    .then(res => res.json())
+    .then((data) => {  
+      console.log("in getAllUsersAtStartup here is data :");
+      console.log(data);
+      setAllUsers(data); setIsLoadingAllUsers(false); }
     )
   };
 
@@ -88,10 +114,23 @@ const MainContainer = () => {
     tempAnswerPicked = setAnswerPicked(answer)
   }
 
+
+  // -- 
+
   function assignTopFiveUsers(array) {
-    console.log("State (topFiveUsers) = " + topFiveUsers)
+    
     tempTopFiveUsers = setTopFiveUsers(array)
+    console.log("State (topFiveUsers) = " + topFiveUsers)
   }
+
+  // function assignAllUsers(array) {
+    
+  //   tempAllUsers = setAllUsers(array)
+  //   console.log("State (allUsers) = " + allUsers)
+  //   console.log("tempAllUsers = " + tempAllUsers)
+  // }
+  
+  // -- 
 
   function assignLevelUpButtonPressed(bool) {
     console.log("State (levelUpButtonPressed) = " + levelUpButtonPressed)
@@ -126,8 +165,11 @@ const MainContainer = () => {
     return (
       <SafeAreaView style={styles.mainContainerNameEntryView}>
         <Logo />
-        <NameEntry addName={addName} addUserId={addUserId}/>
-        <Text> State: {name} </Text>
+        <NameEntry allUsers={allUsers} 
+                    addName={addName} 
+                    addUserId={addUserId} 
+                    determineUserTotalExperience={determineUserTotalExperience}
+                    />
       </SafeAreaView>
     );
   }
@@ -138,7 +180,6 @@ const MainContainer = () => {
       <SafeAreaView style={Style.mainContainerView}>
         <Logo />
         <LanguageSelector chooseLanguage={chooseLanguage} />
-        <Text> States: name = {name}. language = {language}</Text>
       </SafeAreaView>
     );
   }
@@ -185,8 +226,6 @@ const MainContainer = () => {
           language={language} 
           selectIsland={selectIsland} 
           assignCurrentQuestion={assignCurrentQuestion}/>
-
-        <Text>States: name = {name}. language = {language}.</Text>
       </SafeAreaView>
     );
   }
@@ -227,9 +266,6 @@ const MainContainer = () => {
           determineUserTotalExperience={determineUserTotalExperience}
           determineUserLevel={determineUserLevel}
           />
-
-        <Text> selectedIsland = {selectedIsland}</Text>
-
       </SafeAreaView>
     );
   };
@@ -242,7 +278,7 @@ const styles = StyleSheet.create ({
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'darkslateblue'
+    backgroundColor: '#1b8c37',
   },
 
 })

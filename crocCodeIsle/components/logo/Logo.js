@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, Image, StyleSheet, SafeAreaView } from 'react-native';
 import Style from '../styles/Style';
-import CrocLogo from '../assets/CrocLogo.png'
+import CrocLogo from '../assets/CrocText.png'
 import IslandLogo from '../assets/IslandLogo.png'
 import TextLogo from '../assets/TextLogo.png';
 
@@ -13,9 +13,9 @@ const Logo = () => {
       <View>
         <Image style={styles.crocLogo} source = {CrocLogo} />
       </View>
-      <View>
+      {/* <View>
         <Image style={styles.textLogo} source = {TextLogo} />
-      </View>
+      </View> */}
     </SafeAreaView>
   );
 };
@@ -26,7 +26,7 @@ const styles = StyleSheet.create ({
     width: 240,
     height: 240,
     resizeMode: 'contain',
-    borderRadius: 50,
+    borderRadius: 0,
   },
 
   textLogo: {

@@ -2,25 +2,16 @@ const baseUsersURL = 'http://localhost:8080/users/';
 
 const UserService = {
 
-    async getUsers() {
+    async getAllUsers() {
         const response = await fetch(baseUsersURL)
         .then(res => res.json())
-        .then(responseJSON => console.log('getUsers() result:', responseJSON));
+        .then(responseJSON => console.log('getAllUsers() result:', responseJSON));
 
         return response;
+
     },
 
-    // async getUserByName(name) {
-    //     console.log('name in getuserbyname:')
-    //     console.log(name)
-    //     var stringedName = name.toString()
-    //     var urlToHit = baseUsersURL + "name/" + stringedName 
-    //     const response = await fetch(urlToHit)
-    //     .then(res => res.json())
-    //     .then(responseJSON => console.log('getUserByName() result:', responseJSON));
-    //     return response;
-
-    // },
+    
 
 
     async getTop5Users() {
@@ -28,14 +19,12 @@ const UserService = {
         .then(res => res.json())
         // .then(responseJSON => console.log('getTop5Users() result:', responseJSON));
 
-        console.log("Inside Top5Users here is response - ")
-        console.log(response);
+        // console.log("Inside Top5Users here is response - ")
+        // console.log(response);
         return response;
     },
-    // getTop5Users() {
-    //     return fetch(baseUsersURL + "top5")
-    //     .then(res => res.json());
-    // },
+
+    
 
     addUser(payload) {
 
@@ -52,15 +41,16 @@ const UserService = {
 
     updateUser(user, name) {
         var stringedName = name.toString()
-        return fetch(baseUsersURL + "/name/" + stringedName, {
-            method: 'PUT',
-            body: JSON.stringify(user),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-            })
-            .then(res => res.json());
-        },
+
+        return fetch(baseUsersURL, {
+        method: 'PUT',
+        body: JSON.stringify(user),
+        headers: {
+        'Content-Type': 'application/json'
+        }
+    })
+        .then(res => res.json());
+    },
 
 };
 

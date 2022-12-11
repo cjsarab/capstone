@@ -33,18 +33,18 @@ const Question = ({
 
             console.log(response + " was the correct response")
 
-            var experience;
-            experience = userTotalExperience + questionPoints;
-            determineUserTotalExperience(experience)
+            var points;
+            points = userTotalExperience + questionPoints;
+            determineUserTotalExperience(points)
 
             const user = {
-              name,
-              experience
+                name,
+                points
             }
 
             UserService.updateUser(user, name)
 
-            var level = workOutUserLevelByExperience(experience)
+            var level = workOutUserLevelByExperience(points)
             console.log ( "Level = " + level)
             determineUserLevel(level)
 
@@ -64,11 +64,18 @@ const Question = ({
         if (text == response1) {
             console.log(text + ' was the correct answer!')
 
-            var experience;
-            experience = userTotalExperience + questionPoints;
-            determineUserTotalExperience(experience)
+            var points;
+            points = userTotalExperience + questionPoints;
+            determineUserTotalExperience(points)
 
-            var level = workOutUserLevelByExperience(experience)
+            const user = {
+                name,
+                points
+            }
+
+            UserService.updateUser(user, name)
+
+            var level = workOutUserLevelByExperience(points)
             console.log ( "Level = " + level)
             determineUserLevel(level)
 
@@ -140,7 +147,7 @@ const Question = ({
         else if (answerPicked == '4') {
             textOfAnswerPicked = response4
         }
-        console.log("textOfAnswerPicked = " + textOfAnswerPicked)
+        // console.log("textOfAnswerPicked = " + textOfAnswerPicked)
     }
     else if(questionType == "text_input"){
         
@@ -306,7 +313,7 @@ const styles = StyleSheet.create({
         marginLeft: '20%',
         marginRight: '20%',
     },
-  
-  })
+
+})
 
 export default Question;
