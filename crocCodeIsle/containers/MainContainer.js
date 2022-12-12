@@ -49,6 +49,8 @@ const MainContainer = () => {
     // addUserId(UserService.getUserByName(name));
         // assignAllUsers(UserService.getAllUsers());
     
+    console.log("in useEffect ")
+
     getIslands();
 
     getAllUsersAtStartup();
@@ -61,7 +63,10 @@ const MainContainer = () => {
   const getIslands = function(){
     fetch("http://localhost:8080/questionislands/")
     .then(res => res.json())
-    .then((data) => {  setIslands(data); setIsLoading(false); }
+    .then((data) => {  setIslands(data); setIsLoading(false); 
+    console.log("in getIslands, have just set isLoading to false ")
+    
+    }
     )
   };
 
@@ -156,7 +161,7 @@ const MainContainer = () => {
     console.log("State (isLoadingAllUsers) = " + isLoadingAllUsers)
   }
 
-  if (isLoading) {
+  if (isLoading || isLoadingAllUsers) {
     console.log("isLoading = true. App is most likely fetching data.");
     return(
       <SafeAreaView style={Style.progressField}>
@@ -165,6 +170,9 @@ const MainContainer = () => {
             <Animated.View style={{ ...StyleSheet.absoluteFill, backgroundColor: 'lime', width: '50%' }} />
           </View>
         <Text style={Style.text}>50%</Text>
+
+
+        <Text>isLoading {isLoading} isLoadingAllUsers {isLoadingAllUsers} </Text>
       </SafeAreaView>
     );
   }
