@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, Pressable, Image} from 'react-native';
 import Style from '../styles/Style';
 import island from '../assets/island.png';
 
-const Island = ({islandData, selectIsland, assignCurrentQuestion}) => {
+const Island = ({islandData, align, selectIsland, assignCurrentQuestion}) => {
 
   const onPress = (id) => {
     selectIsland(id)
@@ -18,13 +18,14 @@ const Island = ({islandData, selectIsland, assignCurrentQuestion}) => {
   //  duncan says - maybe we just pass the id down not the whole islandData
 
   return (
-    <View>
+    <View >
       <Pressable style={({ pressed }) => pressed ? [styles.islandButton, styles.pressed] : styles.islandButton } 
           onPress={(event) => onPress(id)}>
-      <Text style={Style.text}>
-      <Image style={Style.TrophyLogoLarge} source = {island} />
-      
-      {islandName}</Text>
+        <Image style={Style.IslandButton} source = {island} />
+        <Text style={Style.text}>
+          {islandName} al:{align}
+        </Text>
+        
       </Pressable>
     </View>
   );
@@ -34,8 +35,8 @@ const styles = StyleSheet.create({
 
     islandButton: {
       backgroundColor: '#3366ff',
-      height: 220,
-      width: 200,
+      height: 180,
+      width: 180,
       padding: 20,
       margin: 20,
       borderRadius: 10,

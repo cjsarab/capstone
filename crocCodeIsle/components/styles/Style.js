@@ -96,11 +96,19 @@ export default Style = StyleSheet.create({
     },
 
     TrophyLogoLarge: {
-      width: 150,
-      height: 150,
+      width: 200,
+      height: 200,
+      resizeMode: 'cover',
+      
+    },
+
+    IslandButton: {
+      width: 120,
+      height: 120,
       resizeMode: 'contain',
       
     },
+    
 
     progressField: {
       flex: 1,
