@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text, StyleSheet, Pressable } from 'react-native';
+import {View, Text, StyleSheet, Pressable, Image} from 'react-native';
 import Style from '../styles/Style';
-
+import island from '../assets/island.png';
 
 const Island = ({islandData, selectIsland, assignCurrentQuestion}) => {
 
@@ -21,7 +21,10 @@ const Island = ({islandData, selectIsland, assignCurrentQuestion}) => {
     <View>
       <Pressable style={({ pressed }) => pressed ? [styles.islandButton, styles.pressed] : styles.islandButton } 
           onPress={(event) => onPress(id)}>
-      <Text style={Style.text}>{islandName}</Text>
+      <Text style={Style.text}>
+      <Image style={Style.TrophyLogoLarge} source = {island} />
+      
+      {islandName}</Text>
       </Pressable>
     </View>
   );
@@ -30,9 +33,9 @@ const Island = ({islandData, selectIsland, assignCurrentQuestion}) => {
 const styles = StyleSheet.create({
 
     islandButton: {
-      backgroundColor: '#f18930',
-      height: 120,
-      width: 120,
+      backgroundColor: '#3366ff',
+      height: 220,
+      width: 200,
       padding: 20,
       margin: 20,
       borderRadius: 10,

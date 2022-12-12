@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import {View, Text, Pressable, StyleSheet} from 'react-native';
+import {View, Text, Pressable, StyleSheet, Image} from 'react-native';
 import Style from '../styles/Style';
 import UserService from '../services/UserService';
+import trophy from '../assets/Trophy.png';
 
 const ScorePage = ({topFiveUsers, assignViewScoreTo, assignTopFiveUsers}) => {
 
-  
+
 
 
   const onPress = () => {
@@ -13,14 +14,19 @@ const ScorePage = ({topFiveUsers, assignViewScoreTo, assignTopFiveUsers}) => {
   };
 
   const topFiveUsersToOutput = 
-        topFiveUsers['_z'][0]['name'] + ": " + topFiveUsers['_z'][0]['points'] + "\n" +
-        topFiveUsers['_z'][1]['name'] + ": " + topFiveUsers['_z'][1]['points'] + "\n" +
-        topFiveUsers['_z'][2]['name'] + ": " + topFiveUsers['_z'][2]['points'] + "\n" +
-        topFiveUsers['_z'][3]['name'] + ": " + topFiveUsers['_z'][3]['points'] + "\n" +
-        topFiveUsers['_z'][4]['name'] + ": " + topFiveUsers['_z'][4]['points'] 
+        "1: " + topFiveUsers['_z'][0]['name'] + ": " + topFiveUsers['_z'][0]['points'] + "\n" +
+        "2: " + topFiveUsers['_z'][1]['name'] + ": " + topFiveUsers['_z'][1]['points'] + "\n" +
+        "3: " + topFiveUsers['_z'][2]['name'] + ": " + topFiveUsers['_z'][2]['points'] + "\n" +
+        "4: " + topFiveUsers['_z'][3]['name'] + ": " + topFiveUsers['_z'][3]['points'] + "\n" +
+        "5: " + topFiveUsers['_z'][4]['name'] + ": " + topFiveUsers['_z'][4]['points'] 
   
   return (
-    <View>
+    <View style={Style.scorePageView} >
+
+        <Image style={Style.TrophyLogoLarge} source = {trophy} />
+        <Text style={styles.userOutput} >
+          Top Scorers
+        </Text>
         <Text style={styles.userOutput} >
           {topFiveUsersToOutput}
         </Text>
@@ -37,8 +43,8 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       fontWeight: 'bold',
       fontSize: 25,
-      padding: 10,
-      paddingTop: 120
+      padding: 5,
+      paddingTop: 50
   },
 
   backButton: {

@@ -29,8 +29,11 @@ const MainContainer = () => {
 
   const[allUsers, setAllUsers] = useState([])
   const [isLoadingAllUsers, setIsLoadingAllUsers] = useState(true); // this isLoading is to check we've loaded the island
+  
+  
+  const [isLoadingIslandsCompleted, setIsLoadingIslandsCompleted] = useState(true); // this isLoading is to check we've loaded the islandscompleted
 
-
+  
 
   const [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
   const [answerPicked, setAnswerPicked] = useState(null)
@@ -41,6 +44,8 @@ const MainContainer = () => {
   const [levelUpButtonPressed, setLevelUpButtonPressed] = useState(false);
   const [userTotalExperience, setUserTotalExperience] = useState(0);
   const [userLevel, setUserLevel] = useState(1);
+
+  const [islandsCompleted, setIslandsCompleted] = useState([]);
 
   const [triggerReloadFromDB, setTriggerReloadFromDB] = useState("");
 
@@ -57,6 +62,7 @@ const MainContainer = () => {
 
     assignTopFiveUsers(UserService.getTop5Users());
 
+    getIslandsCompleted();
 
   }, [triggerReloadFromDB]);
 
@@ -76,6 +82,17 @@ const MainContainer = () => {
     .then(res => res.json())
     .then((data) => {  
       setAllUsers(data); setIsLoadingAllUsers(false); }
+    )
+  };
+
+  const getIslandsCompleted = function(){
+    fetch("http://localhost:8080/islandscompleted/")
+    .then(res => res.json())
+    .then((data) => {  setIslandsCompleted(data); 
+                        setIsLoadingIslandsCompleted(false); 
+    console.log("in getIslandsCompleted, have just set isLoadingIslandsCompleted to false ")
+    
+    }
     )
   };
 
@@ -161,6 +178,17 @@ const MainContainer = () => {
     console.log("State (isLoadingAllUsers) = " + isLoadingAllUsers)
   }
 
+  function assignIslandsCompleted(arrayOfIslandsCompleted){
+    tempIslandsCompleted = setIslandsCompleted(arrayOfIslandsCompleted)
+    console.log("State (islandsCompleted) = " + islandsCompleted)
+  }
+
+  function assignIsLoadingIslandsCompleted(bool){
+    tempIsLoadingIslandsCompleted = setIsLoadingIslandsCompleted(bool);
+    console.log("State (isLoadingIslandsCompleted) = " + isLoadingIslandsCompleted)
+
+  }
+
   if (isLoading || isLoadingAllUsers) {
     console.log("isLoading = true. App is most likely fetching data.");
     return(
@@ -178,7 +206,8 @@ const MainContainer = () => {
   }
 
   else if (name == "") {
-    
+    console.log("islandsCompleted");
+    console.log(islandsCompleted);
     return (
       <SafeAreaView style={styles.mainContainerNameEntryView}>
         <Logo />

@@ -32,7 +32,7 @@ export default Style = StyleSheet.create({
       bottom: 0,
       top: 0,
       marginTop: 150,
-      backgroundColor: '#006994',
+      backgroundColor: '#3366DF',
       borderWidth: 3,
       borderColor: 'black',
       borderRadius: 10,
@@ -95,6 +95,13 @@ export default Style = StyleSheet.create({
       resizeMode: 'contain',
     },
 
+    TrophyLogoLarge: {
+      width: 150,
+      height: 150,
+      resizeMode: 'contain',
+      
+    },
+
     progressField: {
       flex: 1,
       flexDirection: 'column',
@@ -111,6 +118,12 @@ export default Style = StyleSheet.create({
       borderWidth: 3,
       borderRadius: 10,
       flexDirection: 'row',
+    },
+
+    scorePageView: {
+      justifyContent: 'center',
+      alignItems: 'center',
+
     }
 
 });

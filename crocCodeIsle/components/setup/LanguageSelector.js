@@ -39,7 +39,7 @@ const LanguageSelector = ({chooseLanguage}) => {
 const styles = StyleSheet.create({
 
   languageChoiceButton: {
-    backgroundColor: 'green',
+    backgroundColor: '#FFDF50',
     width: 333,
     padding: 20,
     margin: 20,
