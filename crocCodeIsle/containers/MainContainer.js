@@ -42,6 +42,8 @@ const MainContainer = () => {
   const [userTotalExperience, setUserTotalExperience] = useState(0);
   const [userLevel, setUserLevel] = useState(1);
 
+  const [triggerReloadFromDB, setTriggerReloadFromDB] = useState("");
+
 
   useEffect(() => {
     // addUserId(UserService.getUserByName(name));
@@ -54,7 +56,7 @@ const MainContainer = () => {
     assignTopFiveUsers(UserService.getTop5Users());
 
 
-  }, []);
+  }, [triggerReloadFromDB]);
 
   const getIslands = function(){
     fetch("http://localhost:8080/questionislands/")
@@ -138,7 +140,22 @@ const MainContainer = () => {
     tempUserLevel = setUserLevel(level)
     console.log("State (userLevel) = " + userLevel)
   }
+
+  function assignTriggerReloadFromDB(data) {
+    tempTriggerReloadFromDB = setTriggerReloadFromDB(data);
+    console.log("State (triggerReloadFromD) = " + triggerReloadFromDB)
+  }
   
+  function assignIsLoading(bool) {
+    tempIsLoading = setIsLoading(bool);
+    console.log("State (isLoading) = " + isLoading)
+  }
+
+  function assignIsLoadingAllUsers(bool) {
+    tempIsLoadingAllUser = setIsLoadingAllUsers(bool);
+    console.log("State (isLoadingAllUsers) = " + isLoadingAllUsers)
+  }
+
   if (isLoading) {
     console.log("isLoading = true. App is most likely fetching data.");
     return(
@@ -211,7 +228,11 @@ const MainContainer = () => {
           assignViewScoreTo={assignViewScoreTo} 
           selectIsland={selectIsland}
           assignTopFiveUsers={assignTopFiveUsers}
-          assignLevelUpButtonPressed={assignLevelUpButtonPressed}/>
+          assignLevelUpButtonPressed={assignLevelUpButtonPressed}
+          assignTriggerReloadFromDB={assignTriggerReloadFromDB}
+          assignIsLoading={assignIsLoading}
+          assignIsLoadingAllUsers={assignIsLoadingAllUsers}
+          />
 
         <IslandContainer
           islands={islands}
@@ -240,7 +261,11 @@ const MainContainer = () => {
           assignViewScoreTo={assignViewScoreTo} 
           selectIsland={selectIsland}
           assignTopFiveUsers={assignTopFiveUsers}
-          assignLevelUpButtonPressed={assignLevelUpButtonPressed}/>
+          assignLevelUpButtonPressed={assignLevelUpButtonPressed}
+          assignTriggerReloadFromDB={assignTriggerReloadFromDB}
+          assignIsLoading={assignIsLoading}
+          assignIsLoadingAllUsers={assignIsLoadingAllUsers}
+          />
 
         <QuestionContainer 
           name={name}
@@ -270,7 +295,7 @@ const styles = StyleSheet.create ({
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#1b8c37',
+    backgroundColor: '#5dade2',
   },
 
 })

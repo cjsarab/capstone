@@ -7,7 +7,7 @@ export default Style = StyleSheet.create({
         flex: 2,
         // justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'darkslateblue'
+        backgroundColor: '#5dade2'
       },
     
     questionContainer: {

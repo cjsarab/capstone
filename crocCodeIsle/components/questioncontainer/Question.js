@@ -258,7 +258,7 @@ const styles = StyleSheet.create({
     },
 
     questionCodeView: {
-        backgroundColor: 'red',
+        backgroundColor: '#eeeeee',
         borderTopColor: 'black',
         borderBottomColor: 'black',
         borderTopWidth: 3,

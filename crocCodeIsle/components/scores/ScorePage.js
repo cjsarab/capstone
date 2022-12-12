@@ -5,6 +5,9 @@ import UserService from '../services/UserService';
 
 const ScorePage = ({topFiveUsers, assignViewScoreTo, assignTopFiveUsers}) => {
 
+  
+
+
   const onPress = () => {
       assignViewScoreTo(false)
   };

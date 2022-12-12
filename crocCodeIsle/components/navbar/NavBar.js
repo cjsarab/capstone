@@ -17,7 +17,10 @@ const NavBar = ({
     assignViewScoreTo, 
     selectIsland, 
     assignTopFiveUsers,
-    assignLevelUpButtonPressed
+    assignLevelUpButtonPressed,
+    assignTriggerReloadFromDB,
+    assignIsLoading,
+    assignIsLoadingAllUsers
     
     }) => {
 
@@ -27,7 +30,7 @@ const NavBar = ({
             <LanguageChoiceButton 
             language={language} 
             chooseLanguage={chooseLanguage}
-             selectIsland={selectIsland}/>
+            selectIsland={selectIsland}/>
 
             <LevelBar 
             userTotalExperience={userTotalExperience}
@@ -35,7 +38,10 @@ const NavBar = ({
             levelUpButtonPressed={levelUpButtonPressed} 
             assignLevelUpButtonPressed={assignLevelUpButtonPressed}/>
 
-            <ScoresButton assignViewScoreTo={assignViewScoreTo} />
+            <ScoresButton assignViewScoreTo={assignViewScoreTo} 
+                            assignTriggerReloadFromDB={assignTriggerReloadFromDB}
+                            assignIsLoading={assignIsLoading}
+                            assignIsLoadingAllUsers={assignIsLoadingAllUsers} />
 
         </SafeAreaView>
     );
