@@ -16,13 +16,19 @@ const ScorePage = ({topFiveUsers, assignViewScoreTo, assignTopFiveUsers}) => {
     console.log("key : " + key);
   } 
   
+  var topFiveUsersToOutput;
+  if(topFiveUsers!=null && topFiveUsers['_z'][0]!=null){
+    topFiveUsersToOutput = 
+            "1: " + topFiveUsers['_z'][0]['name'] + ": " + topFiveUsers['_z'][0]['points'] + "\n" +
+            "2: " + topFiveUsers['_z'][1]['name'] + ": " + topFiveUsers['_z'][1]['points'] + "\n" +
+            "3: " + topFiveUsers['_z'][2]['name'] + ": " + topFiveUsers['_z'][2]['points'] + "\n" +
+            "4: " + topFiveUsers['_z'][3]['name'] + ": " + topFiveUsers['_z'][3]['points'] + "\n" +
+            "5: " + topFiveUsers['_z'][4]['name'] + ": " + topFiveUsers['_z'][4]['points'];
+  }
+  else{
+    topFiveUsersToOutput = "Loading...";
+  }
 
-  const topFiveUsersToOutput = 
-        "1: " + topFiveUsers['_z'][0]['name'] + ": " + topFiveUsers['_z'][0]['points'] + "\n" +
-        "2: " + topFiveUsers['_z'][1]['name'] + ": " + topFiveUsers['_z'][1]['points'] + "\n" +
-        "3: " + topFiveUsers['_z'][2]['name'] + ": " + topFiveUsers['_z'][2]['points'] + "\n" +
-        "4: " + topFiveUsers['_z'][3]['name'] + ": " + topFiveUsers['_z'][3]['points'] + "\n" +
-        "5: " + topFiveUsers['_z'][4]['name'] + ": " + topFiveUsers['_z'][4]['points'] 
   
   return (
     <View style={Style.scorePageView} >
