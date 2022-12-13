@@ -8,10 +8,14 @@ const ScorePage = ({topFiveUsers, assignViewScoreTo, assignTopFiveUsers}) => {
 
 
 
-
   const onPress = () => {
       assignViewScoreTo(false)
   };
+
+  for (var key in topFiveUsers) {
+    console.log("key : " + key);
+  } 
+  
 
   const topFiveUsersToOutput = 
         "1: " + topFiveUsers['_z'][0]['name'] + ": " + topFiveUsers['_z'][0]['points'] + "\n" +
