@@ -34,7 +34,6 @@ const MainContainer = () => {
   const [isLoadingIslandsCompleted, setIsLoadingIslandsCompleted] = useState(true); // this isLoading is to check we've loaded the islandscompleted
 
   
-
   const [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
   const [answerPicked, setAnswerPicked] = useState(null)
 
@@ -189,7 +188,7 @@ const MainContainer = () => {
 
   }
 
-  if (isLoading || isLoadingAllUsers) {
+  if (isLoading || isLoadingAllUsers || isLoadingIslandsCompleted) {
     console.log("isLoading = true. App is most likely fetching data.");
     return(
       <SafeAreaView style={Style.progressField}>
@@ -200,7 +199,7 @@ const MainContainer = () => {
         <Text style={Style.text}>50%</Text>
 
 
-        <Text>isLoading {isLoading} isLoadingAllUsers {isLoadingAllUsers} </Text>
+        <Text>isLoading {isLoading} isLoadingAllUsers {isLoadingAllUsers}  </Text>
       </SafeAreaView>
     );
   }
@@ -274,6 +273,10 @@ const MainContainer = () => {
         <IslandContainer
           islands={islands}
           language={language} 
+          islandsCompleted={islandsCompleted}
+          name={name}
+          userTotalExperience={userTotalExperience}
+          
           selectIsland={selectIsland} 
           assignCurrentQuestion={assignCurrentQuestion}/>
       </SafeAreaView>
