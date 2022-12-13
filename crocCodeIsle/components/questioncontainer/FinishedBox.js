@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, Text, Pressable, StyleSheet, Image} from 'react-native';
 import Style from '../styles/Style';
-import SuperCroc from '../assets/SuperCroc.png';
-import DetectiveCroc from '../assets/DetectiveCroc.png';
+import SuperCroc from '../assets/superCroc.png';
+import DetectiveCroc from '../assets/detectiveCroc.png';
 
 const FinishedBox = ({
     assignIsQuestionAnswered,
@@ -48,7 +48,7 @@ const FinishedBox = ({
     }
     else{
         return (
-            <View>
+            <View style={styles.container}>
                 <Text style={Style.text}>
                     Unfortunately that was not correct, 
                 </Text>
@@ -59,6 +59,8 @@ const FinishedBox = ({
                 <Text style={Style.text}>
                     you chose " {textOfAnswerPicked} "
                 </Text>
+                <Image style={styles.crocImage} source = {DetectiveCroc} />
+
                 
                     <Pressable
                         style={styles.moveOnButton}
