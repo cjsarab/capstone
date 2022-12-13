@@ -1,6 +1,8 @@
 import React from 'react';
-import {View, Text, Pressable, StyleSheet} from 'react-native';
+import {View, Text, Pressable, StyleSheet, Image} from 'react-native';
 import Style from '../styles/Style';
+import SuperCroc from '../assets/SuperCroc.png';
+import DetectiveCroc from '../assets/DetectiveCroc.png';
 
 const FinishedBox = ({
     assignIsQuestionAnswered,
@@ -26,18 +28,19 @@ const FinishedBox = ({
 
     if(textOfCorrectResponse==textOfAnswerPicked){
         return (
-            <View>
+            <View style={styles.container}>
                 <Text style={Style.text}>
                     Well Done, 
                 </Text>
                 <Text style={Style.text}> 
                     that was correct!
                 </Text>
+                <Image style={styles.crocImage} source = {SuperCroc} />
                 <Pressable
                     style={styles.moveOnButton}
                     onPress={(event) => onPress()}>
                         <Text style={Style.text}>
-                            move on!
+                            Move on!
                         </Text>
                 </Pressable>
             </View>
@@ -73,6 +76,13 @@ const FinishedBox = ({
 
 const styles = StyleSheet.create({
 
+    container: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+
+    },
+
     moveOnButton: {
         marginTop: '15%',
         marginLeft: '39%',
@@ -85,6 +95,13 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
+        },
+
+        crocImage: {
+            height: 240,
+            width: 240,
+            resizeMode: 'contain',
+            marginTop: 20
         }
 
 })

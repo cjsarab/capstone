@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, Pressable, StyleSheet } from 'react-native';
 import Style from '../styles/Style';
-
+import SnakeWatermark from '../assets/SnakeWatermark.png';
 
 const LanguageSelector = ({chooseLanguage}) => {
 
@@ -18,18 +18,18 @@ const LanguageSelector = ({chooseLanguage}) => {
 
       <Pressable style={({ pressed }) => pressed ? [styles.languageChoiceButton, styles.pressed] : styles.languageChoiceButton } 
           onPress={(event) => onPress(python)}>
-          <Text style={Style.text}>Python</Text>
+          <Text style={styles.text}>Python</Text>
 
       </Pressable>
 
       <Pressable style={({ pressed }) => pressed ? [styles.languageChoiceButton, styles.pressed] : styles.languageChoiceButton } 
           onPress={(event) => onPress(javascript)}>
-        <Text style={Style.text}>JavaScript</Text>
+        <Text style={styles.text}>JavaScript</Text>
       </Pressable>
 
       <Pressable style={({ pressed }) => pressed ? [styles.languageChoiceButton, styles.pressed] : styles.languageChoiceButton } 
           onPress={(event) => onPress(java)}>
-        <Text style={Style.text}>Java</Text>
+        <Text style={styles.text}>Java</Text>
       </Pressable>
 
     </View>
@@ -39,11 +39,14 @@ const LanguageSelector = ({chooseLanguage}) => {
 const styles = StyleSheet.create({
 
   languageChoiceButton: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#FFDF50',
-    width: 333,
+    width: 266,
     padding: 20,
     margin: 20,
-    borderRadius: 50,
+    borderRadius: 10,
     borderWidth: 3,
     borderColor: 'black',
     textAlign: 'center'
@@ -51,6 +54,18 @@ const styles = StyleSheet.create({
 
   pressed: {
     backgroundColor: 'lime'
+  },
+
+  languageImageStyle: {
+    height: 100,
+    width: 100,
+
+  },
+
+  text: {
+    fontSize: 20,
+    textAlign: 'center',
+    fontFamily: 'futura',
   }
 
 })
