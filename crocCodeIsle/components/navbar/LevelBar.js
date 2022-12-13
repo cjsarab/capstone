@@ -68,6 +68,10 @@ const LevelBar = ({
         percentage = Math.floor(percentage)
     }
 
+    if (percentage > 100) {
+        percentage = 100
+    }
+
         return (
             <SafeAreaView style={styles().levelUpBarContainer}>
                     <Pressable style={styles().levelUpBar} onPress={(event)=>onPress()}>

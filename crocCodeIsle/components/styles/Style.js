@@ -103,10 +103,10 @@ export default Style = StyleSheet.create({
     },
 
     IslandButton: {
-      width: 120,
-      height: 120,
+      width: 200,
+      height: 200,
+      margin: 10,
       resizeMode: 'contain',
-      
     },
     
 

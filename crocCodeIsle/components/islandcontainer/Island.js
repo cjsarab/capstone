@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, Pressable, Image} from 'react-native';
 import Style from '../styles/Style';
 import island from '../assets/island.png';
+import drawnIsland from '../assets/drawnIsland3.png'
 
 const Island = ({islandData, align, selectIsland, assignCurrentQuestion}) => {
 
@@ -18,37 +19,52 @@ const Island = ({islandData, align, selectIsland, assignCurrentQuestion}) => {
   //  duncan says - maybe we just pass the id down not the whole islandData
 
   return (
-    <View >
-      <Pressable style={({ pressed }) => pressed ? [styles.islandButton, styles.pressed] : styles.islandButton } 
+    <View style={styles.islandButtonContainer}>
+
+        <Image style={Style.IslandButton} source = {drawnIsland} />
+
+        <Pressable style={({ pressed }) => pressed ? [styles.islandButton, styles.pressed] : styles.islandButton } 
           onPress={(event) => onPress(id)}>
-        <Image style={Style.IslandButton} source = {island} />
-        <Text style={Style.text}>
-          {islandName} al:{align}
-        </Text>
-        
-      </Pressable>
+              <Text style={styles.text}>
+                {islandName}
+              </Text>
+        </Pressable>
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
 
+  islandButtonContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
     islandButton: {
-      backgroundColor: '#3366ff',
-      height: 180,
-      width: 180,
-      padding: 20,
+      height: 100,
+      width: 120,
+      padding: 0,
       margin: 20,
-      borderRadius: 10,
-      borderWidth: 3,
       borderColor: 'black',
+      borderWidth: 3,
+      borderRadius: 10,
       textAlign: 'center',
       justifyContent: 'center',
+      backgroundColor: 'silver'
+
     },
   
     pressed: {
       backgroundColor: '#ffdb0d'
-    }
+    },
+
+    text: {
+      fontSize: 20,
+      textAlign: 'center',
+    },
   
   })
 
