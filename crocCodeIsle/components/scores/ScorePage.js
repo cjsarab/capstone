@@ -17,7 +17,7 @@ const ScorePage = ({topFiveUsers, assignViewScoreTo, assignTopFiveUsers}) => {
   } 
   
   var topFiveUsersToOutput;
-  if(topFiveUsers!=null){
+  if(topFiveUsers!=null && topFiveUsers['_z'][0]!=null){
     topFiveUsersToOutput = 
             "1: " + topFiveUsers['_z'][0]['name'] + ": " + topFiveUsers['_z'][0]['points'] + "\n" +
             "2: " + topFiveUsers['_z'][1]['name'] + ": " + topFiveUsers['_z'][1]['points'] + "\n" +
