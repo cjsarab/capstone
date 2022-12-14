@@ -190,28 +190,28 @@ const Question = ({
                 <View style={styles.answerField}>
                     <Pressable style={styles.answerButton}
                         onPress={(event) => onPress('1')}>
-                            <Text style={Style.text}>
+                            <Text style={styles.text}>
                                 {response1}
                             </Text>
                     </Pressable>
 
                     <Pressable style={styles.answerButton}
                         onPress={(event) => onPress('2')}>
-                            <Text style={Style.text}>
+                            <Text style={styles.text}>
                                 {response2}
                             </Text>
                     </Pressable>
 
                     <Pressable style={styles.answerButton}
                         onPress={(event) => onPress('3')}>
-                            <Text style={Style.text}>
+                            <Text style={styles.text}>
                                 {response3}
                             </Text>
                     </Pressable>
 
                     <Pressable style={styles.answerButton}
                         onPress={(event) => onPress('4')}>
-                            <Text style={Style.text}>
+                            <Text style={styles.text}>
                                 {response4}
                             </Text>
                     </Pressable>
@@ -286,7 +286,8 @@ const styles = StyleSheet.create({
         margin: 5,
         borderColor: 'black',
         borderWidth: 2,
-        backgroundColor: 'peru',
+        borderRadius: 15,
+        backgroundColor: '#FFDF50',
         textAlign: 'center',
         justifyContent: 'center',
         textColor: 'black',
@@ -307,6 +308,12 @@ const styles = StyleSheet.create({
         marginLeft: '20%',
         marginRight: '20%',
     },
+
+    text: {
+        fontSize: 40,
+        textAlign: 'center',
+
+    }
 
 })
 

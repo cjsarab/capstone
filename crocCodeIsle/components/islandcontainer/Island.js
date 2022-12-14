@@ -47,22 +47,23 @@ const styles = StyleSheet.create({
       height: 100,
       width: 120,
       padding: 0,
-      margin: 20,
+      marginRight: 20,
       borderColor: 'black',
       borderWidth: 3,
-      borderRadius: 10,
+      borderRadius: 20,
       textAlign: 'center',
       justifyContent: 'center',
-      backgroundColor: 'silver'
+      backgroundColor: '#FFDF50'
 
     },
   
     pressed: {
-      backgroundColor: '#ffdb0d'
+      backgroundColor: 'lime'
     },
 
     text: {
       fontSize: 20,
+      fontWeight: 'bold',
       textAlign: 'center',
     },
   

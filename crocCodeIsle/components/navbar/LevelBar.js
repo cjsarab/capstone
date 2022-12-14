@@ -128,14 +128,14 @@ const styles = (props) => StyleSheet.create ({
         width: '66%',
         borderColor: 'black',
         borderRadius: 8,
-        backgroundColor: 'silver',
+        backgroundColor: 'lime',
         borderWidth: 2,
         marginBottom: 10
     },
 
     experienceBar: {
         height: 54,
-        backgroundColor: 'goldenrod',
+        backgroundColor: 'lime',
         borderRadius: 10,
         flexDirection: 'row',
         width: props + '%',

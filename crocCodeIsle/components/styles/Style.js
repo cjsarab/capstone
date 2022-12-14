@@ -17,7 +17,7 @@ export default Style = StyleSheet.create({
       bottom: 0,
       top: 0,
       marginTop: 150,
-      backgroundColor: 'teal',
+      backgroundColor: '#00ccff',
       borderWidth: 3,
       borderColor: 'black',
       borderRadius: 10,

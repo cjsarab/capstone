@@ -31,10 +31,10 @@ const FinishedBox = ({
     if(textOfCorrectResponse==textOfAnswerPicked){
         return (
             <View style={styles.container}>
-                <Text style={Style.text}>
+                <Text style={styles.text}>
                     Well Done, 
                 </Text>
-                <Text style={Style.text}> 
+                <Text style={styles.text}> 
                     that was correct!
                 </Text>
                 <Image style={styles.crocImage} source = {SuperCroc} />
@@ -51,15 +51,15 @@ const FinishedBox = ({
     else{
         return (
             <View style={styles.container}>
-                <Text style={Style.text}>
-                    Unfortunately that was not correct, 
+                <Text style={styles.text}>
+                    Sorry! 
                 </Text>
                 
-                <Text style={Style.text}>
-                    The correct response was " {textOfCorrectResponse} "
+                <Text style={styles.text}>
+                    The correct response was "{textOfCorrectResponse}".
                 </Text>
-                <Text style={Style.text}>
-                    you chose " {textOfAnswerPicked} "
+                <Text style={styles.text}>
+                    You chose "{textOfAnswerPicked}"!
                 </Text>
                 <Image style={styles.crocImage} source = {DetectiveCroc} />
 
@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
         marginTop: '15%',
         marginLeft: '39%',
         marginRight: '39%',
-        backgroundColor: '#f4e4f4',
-        width: 90,
+        backgroundColor: '#FFDF50',
+        width: 140,
         height: 80,
         borderWidth: 3,
         borderColor: 'black',
@@ -106,7 +106,13 @@ const styles = StyleSheet.create({
             width: 240,
             resizeMode: 'contain',
             marginTop: 20
-        }
+        },
+
+        text: {
+            paddingTop: 10,
+            fontSize: 30,
+            textAlign: 'center',
+          },
 
 })
 
