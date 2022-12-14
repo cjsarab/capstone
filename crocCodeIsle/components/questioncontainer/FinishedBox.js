@@ -1,8 +1,10 @@
 import React from 'react';
 import {View, Text, Pressable, StyleSheet, Image} from 'react-native';
 import Style from '../styles/Style';
-import SuperCroc from '../assets/superCroc.png';
-import DetectiveCroc from '../assets/detectiveCroc.png';
+// import SuperCroc from '../assets/superCroc.png';
+// import SuperCroc from './components/assets/superCroc.png'
+import SuperCroc from '../assets/SuperCroc.png'
+import DetectiveCroc from '../assets/DetectiveCroc.png';
 
 const FinishedBox = ({
     assignIsQuestionAnswered,
