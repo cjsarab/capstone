@@ -1,7 +1,8 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
+import {ScrollView, Text, Image} from 'react-native';
 import Style from '../styles/Style';
 import Island from './Island';
+import Padlock from '../assets/Padlock.png'
 
 
 const IslandContainer = ({islands, 
@@ -70,7 +71,7 @@ const IslandContainer = ({islands,
 
             thisIslandID = islandData[1]['id'];
 
-            if(userTotalExperience>80)
+            if(userTotalExperience>80 )
             {
                 return (
                     <Island 
@@ -84,7 +85,8 @@ const IslandContainer = ({islands,
 
                 )
             }
-            else if(thisIslandID==1)
+            
+            else if(thisIslandID==1 || thisIslandID==4)
             {
 
                 return (
@@ -112,6 +114,12 @@ const IslandContainer = ({islands,
                         assignCurrentQuestion={assignCurrentQuestion} />  
                 
 
+                )
+            }
+            else{
+                return (
+                    // <Text>PADLOCKED ISLAND</Text>
+                    <Image source={Padlock}  style={Style.Padlock} />
                 )
             }
 

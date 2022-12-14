@@ -197,8 +197,6 @@ const MainContainer = () => {
             <Animated.View style={{ ...StyleSheet.absoluteFill, backgroundColor: 'lime', width: '50%' }} />
           </View>
         <Text style={Style.text}>50%</Text>
-
-        <Text>isLoading {isLoading} isLoadingAllUsers {isLoadingAllUsers}  </Text>
       </SafeAreaView>
     );
   }

@@ -95,9 +95,19 @@ export default Style = StyleSheet.create({
       resizeMode: 'contain',
     },
 
+    Padlock: {
+      width: 170,
+      height: 170,
+      padding: 5,
+      margin: 28,
+      resizeMode: 'contain',
+    },
+
     TrophyLogoLarge: {
       width: 200,
       height: 200,
+      margin: 40,
+      
       resizeMode: 'cover',
       
     },

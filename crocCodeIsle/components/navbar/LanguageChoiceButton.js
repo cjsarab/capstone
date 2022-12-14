@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, Image, Pressable} from 'react-native';
 import Style from '../styles/Style';
-import pythonlogo from '../assets/PythonLogo.png';
-import jslogo from '../assets/JSLogo.png';
-import javalogo from '../assets/JavaLogo.png';
+import pythonlogo from '../assets/PythonSnake1.png';
+import jslogo from '../assets/CafeTiere.png';
+import javalogo from '../assets/Java.png';
 
 
 const LanguageChoiceButton = ({language, chooseLanguage, selectIsland})=>{

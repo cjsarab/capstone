@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, Pressable, Image} from 'react-native';
 import Style from '../styles/Style';
 import island from '../assets/island.png';
-import drawnIsland from '../assets/drawnIsland3.png'
+import drawnIsland from '../assets/NewIsland.png'
 
 const Island = ({islandData, align, selectIsland, assignCurrentQuestion}) => {
 
